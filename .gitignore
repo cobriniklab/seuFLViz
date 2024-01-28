@@ -5,3 +5,12 @@
 inst/doc
 *.rds
 docs
+Rprof.out
+*.Rproj
+convert_cyclone_pairs_to_symbol.R
+euler/*
+figures/*
+dev/*
+convert_function_to_method.R
+velocity_embedding.svg
+velocity_expression.svg
