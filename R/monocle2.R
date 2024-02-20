@@ -13,7 +13,7 @@ add_census_slot <- function(object, assay = "gene", slot = "counts") {
 
     data <- floor(data)
 
-    pd <- new("AnnotatedDataFrame", data = pull_metadata(object))
+    pd <- new("AnnotatedDataFrame", data = get_cell_metadata(object))
 
     fData <- data.frame(gene_short_name = row.names(data), row.names = row.names(data))
     fd <- new("AnnotatedDataFrame", data = fData)
@@ -62,7 +62,7 @@ convert_objectv3_to_monoclev2 <- function(object, assay = "gene", slot = "data",
 
     data <- floor(data)
 
-    pd <- new("AnnotatedDataFrame", data = pull_metadata(object))
+    pd <- new("AnnotatedDataFrame", data = get_cell_metadata(object))
 
     fData <- data.frame(gene_short_name = row.names(data), row.names = row.names(data))
     fd <- new("AnnotatedDataFrame", data = fData)
@@ -221,7 +221,7 @@ convert_monoclev2_to_objectv3 <- function(object, assay = "gene", slot = "data",
 
     data <- floor(data)
 
-    pd <- new("AnnotatedDataFrame", data = pull_metadata(object))
+    pd <- new("AnnotatedDataFrame", data = get_cell_metadata(object))
 
     fData <- data.frame(gene_short_name = row.names(data), row.names = row.names(data))
     fd <- new("AnnotatedDataFrame", data = fData)

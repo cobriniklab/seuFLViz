@@ -39,7 +39,7 @@ setMethod("regress_by_features", "Seurat",
             if (regress) {
               object <- ScaleData(object, vars.to.regress = set_name)
               reductions <- names(object@reductions)
-              resolutions <- stringr::str_extract(names(pull_metadata(object))[grepl("snn", names(pull_metadata(object)))], "[0-9].*$")
+              resolutions <- stringr::str_extract(names(get_cell_metadata(object))[grepl("snn", names(get_cell_metadata(object)))], "[0-9].*$")
               resolutions <- sort(as.numeric(resolutions))
               object <- object_reduce_dimensions(object)
               object <- object_cluster(object, resolution = resolutions)
@@ -74,7 +74,7 @@ setMethod("regress_by_features", "SingleCellExperiment",
               reg.nocycle <- regressBatches(object, batch=colData(object)[["Phase"]])
               # object <- ScaleData(object, vars.to.regress = set_name)
               reductions <- reducedDimNames(object)
-              resolutions <- stringr::str_extract(names(pull_metadata(object))[grepl("snn", names(pull_metadata(object)))], "[0-9].*$")
+              resolutions <- stringr::str_extract(names(get_cell_metadata(object))[grepl("snn", names(get_cell_metadata(object)))], "[0-9].*$")
               resolutions <- sort(unique(as.numeric(resolutions)))
               object <- object_reduce_dimensions(object)
               object <- object_cluster(object, resolution = resolutions)

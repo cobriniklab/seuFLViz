@@ -1,16 +1,3 @@
-
-setGeneric("get_object_metadata", function(object) standardGeneric("get_object_metadata"))
-
-setMethod("get_object_metadata", "Seurat", function(object) {
-    Misc(object)
-  })
-
-setMethod("get_object_metadata", "SingleCellExperiment", function(object) {
-  metadata(object)
-})
-
-# list_plot_types ------------------------------
-
 #' Collate list of variables to be plotted
 #'
 #' @param object a single cell object
@@ -102,9 +89,9 @@ setMethod(
     }
 )
 
-# Get cell metadata
+# Pull metadata
 
-#' Get cell metadata
+#' Pull the metadata from a given object
 #'
 #' @param object a single cell object
 #'
@@ -129,7 +116,30 @@ setMethod(
     }
 )
 
-# get variable features ------------------------------
+#' Get object metadata
+#'
+#' @param object a single cell object
+#' @param ... extra args passed to seurat class method
+#'
+#' @return variable features from a single cell object
+#' @export
+setGeneric("get_object_metadata", function(object, ...) {
+  standardGeneric("get_object_metadata")
+})
+
+setMethod(
+  "get_object_metadata", "Seurat",
+  function(object, ...) {
+    Misc(object, ...)
+  }
+)
+
+setMethod(
+  "get_object_metadata", "SingleCellExperiment",
+  function(object, ...) {
+    metadata(object)
+  }
+)
 
 #' Get variable features
 #'
@@ -183,8 +193,6 @@ setMethod(
     }
 )
 
-
-# Set metadata ------------------------------
 
 #' Add new metadata to the object metadata
 #'

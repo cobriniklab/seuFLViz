@@ -221,7 +221,7 @@ setMethod(
         }
         if (!is.null(custom_clust)) {
             object <- Seurat::StashIdent(object = object, save.name = "old.ident")
-            clusters <- tibble::tibble(sample_id = rownames(pull_metadata(object))) %>%
+            clusters <- tibble::tibble(sample_id = rownames(get_cell_metadata(object))) %>%
                 rownames_to_column("order") %>%
                 dplyr::inner_join(custom_clust, by = "sample_id") %>%
                 pull(cluster) %>%
@@ -263,7 +263,7 @@ setMethod(
         }
         # if (!is.null(custom_clust)) {
         #
-        #   clusters <- tibble::tibble(sample_id = rownames(pull_metadata(object))) %>% rownames_to_column("order") %>% dplyr::inner_join(custom_clust, by = "sample_id") %>% pull(cluster) %>% identity()
+        #   clusters <- tibble::tibble(sample_id = rownames(get_cell_metadata(object))) %>% rownames_to_column("order") %>% dplyr::inner_join(custom_clust, by = "sample_id") %>% pull(cluster) %>% identity()
         #   Idents(object = object) <- clusters
         #   return(object)
         # }
@@ -466,9 +466,9 @@ filter_merged_objects <- function(objects, filter_var, filter_val, .drop = F) {
 #' @export
 filter_merged_object <- function(object, filter_var, filter_val, .drop = .drop) {
     if (.drop) {
-        mycells <- pull_metadata(object)[[filter_var]] == filter_val
+        mycells <- get_cell_metadata(object)[[filter_var]] == filter_val
     } else {
-        mycells <- pull_metadata(object)[[filter_var]] == filter_val | is.na(pull_metadata(object)[[filter_var]])
+        mycells <- get_cell_metadata(object)[[filter_var]] == filter_val | is.na(get_cell_metadata(object)[[filter_var]])
     }
     mycells <- colnames(object)[mycells]
     object <- object[, mycells]

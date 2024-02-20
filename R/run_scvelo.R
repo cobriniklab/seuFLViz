@@ -160,3 +160,9 @@ scvelo_expression <- function(adata, features = c("RXRG")) {
 
     # pyplot$show()
 }
+# ## Tabulate important genes
+# scvelo_genes <- function(adata){
+#   scvelo$tl$rank_velocity_genes(adata, groupby='clusters_0.2', min_corr=.3)
+#   df = scvelo$DataFrame(adata.uns['rank_velocity_genes']['names'])
+#   df.head()
+# }

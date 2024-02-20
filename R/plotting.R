@@ -72,11 +72,11 @@ setMethod(
     function(object, group = "batch", embedding = "umap", dims = c(1, 2), highlight = NULL, pt.size = 1.0, return_plotly = FALSE, ...) {
         Seurat::DefaultAssay(object) <- "gene"
 
-        # metadata <- tibble::as_tibble(pull_metadata(object)[Seurat::Cells(object),], rownames = "sID")
+        # metadata <- tibble::as_tibble(get_cell_metadata(object)[Seurat::Cells(object),], rownames = "sID")
         # cellid <- metadata[["sID"]]
         # key <- rownames(metadata)
 
-        metadata <- pull_metadata(object)[Seurat::Cells(object), ]
+        metadata <- get_cell_metadata(object)[Seurat::Cells(object), ]
         key <- rownames(metadata)
 
         if (embedding == "umap") {
@@ -109,7 +109,7 @@ setMethod(
 setMethod(
     "plot_var", "SingleCellExperiment",
     function(object, group = "batch", embedding = "UMAP", dims = c(1, 2), highlight = NULL, pt.size = 1.0, return_plotly = FALSE, ...) {
-        metadata <- pull_metadata(object)
+        metadata <- get_cell_metadata(object)
         key <- rownames(metadata)
 
         if (embedding == "UMAP") {
@@ -195,10 +195,10 @@ setMethod(
     "plot_violin", "SingleCellExperiment",
     function(object, plot_var = "batch", plot_vals = NULL, features = "RXRG", assay = "gene", ...) {
         if (is.null(plot_vals)) {
-            plot_vals <- unique(pull_metadata(object)[[plot_var]])
+            plot_vals <- unique(get_cell_metadata(object)[[plot_var]])
             plot_vals <- plot_vals[!is.na(plot_vals)]
         }
-        object <- object[, pull_metadata(object)[[plot_var]] %in% plot_vals]
+        object <- object[, get_cell_metadata(object)[[plot_var]] %in% plot_vals]
         vln_plot <- scater::plotExpression(object, features = features, x = plot_var, color_by = plot_var) + geom_boxplot(width = 0.2) + NULL
         print(vln_plot)
     }
@@ -233,7 +233,7 @@ setMethod(
 
         Seurat::DefaultAssay(object) <- "gene"
 
-        metadata <- pull_metadata(object)[Seurat::Cells(object), ]
+        metadata <- get_cell_metadata(object)[Seurat::Cells(object), ]
         key <- rownames(metadata)
 
         if (embedding %in% c("tsne", "umap")) {
@@ -269,7 +269,7 @@ setMethod(
     function(object, embedding = c("umap", "pca", "tsne"), features, dims = c(1, 2), return_plotly = FALSE, pt.size = 1.0) {
         embedding <- toupper(embedding)
 
-        metadata <- pull_metadata(object)
+        metadata <- get_cell_metadata(object)
         key <- rownames(metadata)
 
         if (embedding %in% c("TSNE", "UMAP")) {
@@ -362,7 +362,7 @@ setGeneric("plot_markers", function(object, group_by = "batch", num_markers = 5,
 setMethod(
     "plot_markers", "Seurat",
     function(object, group_by = "batch", num_markers = 5, selected_values = NULL, return_plotly = FALSE, marker_method = "wilcox", object_assay = "gene", hide_technical = NULL, unique_markers = FALSE, p_val_cutoff = 1, ...) {
-        Idents(object) <- pull_metadata(object)[[group_by]]
+        Idents(object) <- get_cell_metadata(object)[[group_by]]
         object <- find_all_markers(object, group_by, object_assay = object_assay, p_val_cutoff = p_val_cutoff)
         marker_table <- Misc(object)$markers[[group_by]]
         markers <- marker_table %>%
@@ -434,7 +434,7 @@ setMethod(
 setMethod(
     "plot_markers", "SingleCellExperiment",
     function(object, group_by = "batch", num_markers = 5, selected_values = NULL, return_plotly = FALSE, marker_method = "wilcox", object_assay = "gene", hide_technical = NULL, unique_markers = FALSE, p_val_cutoff = 1, ...) {
-        # Idents(object) <- pull_metadata(object)[[group_by]]
+        # Idents(object) <- get_cell_metadata(object)[[group_by]]
         object <- find_all_markers(object, group_by, object_assay = object_assay, p_val_cutoff = p_val_cutoff)
         marker_table <- metadata(object)$markers[[group_by]]
         markers <- marker_table %>%
@@ -478,7 +478,7 @@ setMethod(
             distinct(feature, .keep_all = TRUE) %>%
             identity()
         if (!is.null(selected_values)) {
-            object <- object[, pull_metadata(object)[[group_by]] %in% selected_values]
+            object <- object[, get_cell_metadata(object)[[group_by]] %in% selected_values]
             sliced_markers <- sliced_markers %>%
                 filter(group %in% selected_values) %>%
                 distinct(feature, .keep_all = TRUE)
@@ -496,7 +496,7 @@ setMethod(
             return(markerplot)
         }
         plot_height <- (150 * num_markers)
-        plot_width <- (100 * length(levels(as.factor(pull_metadata(object)[[group_by]]))))
+        plot_width <- (100 * length(levels(as.factor(get_cell_metadata(object)[[group_by]]))))
         markerplot <- ggplotly(markerplot, height = plot_height, width = plot_width) %>%
             plotly_settings() %>%
             toWebGL() %>%
@@ -532,7 +532,7 @@ setGeneric("plot_readcount", function(object, group_by = "nCount_RNA", color.by 
 setMethod(
     "plot_readcount", "Seurat",
     function(object, group_by = "nCount_RNA", color.by = "batch", yscale = "linear", return_plotly = FALSE, ...) {
-        object_tbl <- rownames_to_column(pull_metadata(object), "SID") %>% select(SID, !!as.symbol(group_by), !!as.symbol(color.by))
+        object_tbl <- rownames_to_column(get_cell_metadata(object), "SID") %>% select(SID, !!as.symbol(group_by), !!as.symbol(color.by))
         rc_plot <- ggplot(object_tbl, aes(x = reorder(SID, -!!as.symbol(group_by)), y = !!as.symbol(group_by), fill = !!as.symbol(color.by))) +
             geom_bar(position = "identity", stat = "identity") +
             theme(axis.text.x = element_blank()) +
@@ -554,7 +554,7 @@ setMethod(
 setMethod(
     "plot_readcount", "SingleCellExperiment",
     function(object, group_by = "nCount_RNA", color.by = "batch", yscale = "linear", return_plotly = FALSE, ...) {
-        object_tbl <- rownames_to_column(pull_metadata(object), "SID") %>% select(SID, !!as.symbol(group_by), !!as.symbol(color.by))
+        object_tbl <- rownames_to_column(get_cell_metadata(object), "SID") %>% select(SID, !!as.symbol(group_by), !!as.symbol(color.by))
         rc_plot <- ggplot(object_tbl, aes(x = reorder(SID, -!!as.symbol(group_by)), y = !!as.symbol(group_by), fill = !!as.symbol(color.by))) +
             geom_bar(position = "identity", stat = "identity") +
             theme(axis.text.x = element_blank()) +
@@ -817,7 +817,7 @@ setMethod(
             filter(symbol == gene_symbol) %>%
             left_join(annotables::grch38_tx2gene, by = "ensgene") %>%
             pull(enstxp)
-        metadata <- pull_metadata(object)
+        metadata <- get_cell_metadata(object)
         metadata$sample_id <- NULL
         metadata <- metadata %>%
             rownames_to_column("sample_id") %>%

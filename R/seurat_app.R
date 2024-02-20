@@ -176,7 +176,7 @@ run_enrichmentbrowser <- function(object, cluster_list, de_results, enrichment_m
         row.names = rownames(object@assays[["gene"]])
     )
 
-    colData <- as.data.frame(pull_metadata(object))
+    colData <- as.data.frame(get_cell_metadata(object))
 
     se <- SummarizedExperiment(
         assays = list(counts = counts),

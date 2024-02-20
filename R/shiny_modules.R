@@ -114,7 +114,7 @@ plotViolin <- function(input, output, session, object, featureType, organism_typ
     output$vplot <- renderPlotly({
         req(object())
         req(input$vlnGroup)
-        exclude_trace_number <- length(unique(pull_metadata(object())[[input$vlnGroup]])) * 2
+        exclude_trace_number <- length(unique(get_cell_metadata(object())[[input$vlnGroup]])) * 2
 
         vln_plot <- ggplotly(vln_plot(), height = 700) %>%
             style(opacity = 0.5) %>%
@@ -186,7 +186,7 @@ plotHeatmap <- function(input, output, session, object, featureType, organism_ty
     output$colAnnoVarui <- renderUI({
         req(object())
 
-        formatted_col_names <- colnames(pull_metadata(object())) %>%
+        formatted_col_names <- colnames(get_cell_metadata(object())) %>%
             make_chevreul_clean_names()
 
         selectizeInput(ns("colAnnoVar"), "Column Annotation(s)",
@@ -199,7 +199,7 @@ plotHeatmap <- function(input, output, session, object, featureType, organism_ty
 
         hclust_methods <- c("Ward" = "ward.D2", "single", "complete", "average")
 
-        updateSelectizeInput(session, "dendroSelect", choices = c(hclust_methods, colnames(pull_metadata(object()))), selected = "ward.D2")
+        updateSelectizeInput(session, "dendroSelect", choices = c(hclust_methods, colnames(get_cell_metadata(object()))), selected = "ward.D2")
     })
 
     heatmap_plot <- eventReactive(input$actionHeatmap, {
@@ -607,7 +607,7 @@ tableSelected <- function(input, output, session, object) {
     output$brushtable <- DT::renderDT({
         req(object())
         req(brush())
-        selected_meta <- data.frame(pull_metadata(object())[brush(), ])
+        selected_meta <- data.frame(get_cell_metadata(object())[brush(), ])
 
         # selection = list(mode = 'multiple', selected = c(1, 3, 8), target = 'row'),
         DT::datatable(selected_meta,
@@ -619,7 +619,7 @@ tableSelected <- function(input, output, session, object) {
 
     selected_cells <- reactive({
         selected_rows <- input$brushtable_rows_selected
-        rownames(pull_metadata(object())[brush(), ])[selected_rows]
+        rownames(get_cell_metadata(object())[brush(), ])[selected_rows]
     })
 
     return(selected_cells)
@@ -781,7 +781,7 @@ diffex <- function(input, output, session, object, featureType, selected_cells, 
 
     output$cc1 <- DT::renderDT({
         req(custom_cluster1())
-        selected_meta <- data.frame(pull_metadata(object())[custom_cluster1(), ])
+        selected_meta <- data.frame(get_cell_metadata(object())[custom_cluster1(), ])
         DT::datatable(selected_meta,
             extensions = "Buttons",
             options = list(dom = "Bft", buttons = c(
@@ -792,7 +792,7 @@ diffex <- function(input, output, session, object, featureType, selected_cells, 
     })
     output$cc2 <- DT::renderDT({
         req(custom_cluster2())
-        selected_meta <- data.frame(pull_metadata(object())[custom_cluster2(), ])
+        selected_meta <- data.frame(get_cell_metadata(object())[custom_cluster2(), ])
         DT::datatable(selected_meta,
             extensions = "Buttons",
             options = list(dom = "Bft", buttons = c(
@@ -861,7 +861,7 @@ diffex <- function(input, output, session, object, featureType, selected_cells, 
 
     cluster_list <- reactive({
         if (input$diffex_scheme == "louvain") {
-            object_meta <- pull_metadata(object())[[paste0(DefaultAssay(object()), "_snn_res.", input$objectResolution)]]
+            object_meta <- get_cell_metadata(object())[[paste0(DefaultAssay(object()), "_snn_res.", input$objectResolution)]]
             cluster1_cells <- rownames(object_meta[object_meta == input$cluster1, , drop = FALSE])
             cluster2_cells <- rownames(object_meta[object_meta == input$cluster2, , drop = FALSE])
             list(cluster1 = cluster1_cells, cluster2 = cluster2_cells)
@@ -946,7 +946,7 @@ findMarkers <- function(input, output, session, object, plot_types, featureType)
         req(object())
         req(group_by())
 
-        choices <- levels(pull_metadata(object())[[group_by()]])
+        choices <- levels(get_cell_metadata(object())[[group_by()]])
 
         selectizeInput(ns("displayValues"), "Values to display", multiple = TRUE, choices = choices)
     })
@@ -1107,7 +1107,7 @@ allTranscripts <- function(input, output, session, object,
         updateSelectizeInput(session, "compositionGene", choices = get_features(object(), assay = "gene"), selected = "RXRG", server = TRUE)
         updateSelectizeInput(session, "embeddingGene", choices = get_features(object(), assay = "gene"), selected = "RXRG", server = TRUE)
 
-        formatted_col_names <- colnames(pull_metadata(object())) %>%
+        formatted_col_names <- colnames(get_cell_metadata(object())) %>%
             make_chevreul_clean_names()
 
         updateSelectizeInput(session, "groupby", choices = formatted_col_names, selected = "batch", server = TRUE)
@@ -1229,7 +1229,7 @@ plotVelocity <- function(input, output, session, object, loom_path) {
 
     observe({
         req(object())
-        updateSelectizeInput(session, "varSelect", choices = colnames(pull_metadata(object())), selected = "batch", server = TRUE)
+        updateSelectizeInput(session, "varSelect", choices = colnames(get_cell_metadata(object())), selected = "batch", server = TRUE)
         updateSelectizeInput(session, "geneSelect", choices = get_features(object(), assay = "gene"), selected = "RXRG", server = TRUE)
     })
 
@@ -1741,7 +1741,7 @@ plotCoverage <- function(input, output, session, object, plot_types, proj_dir, o
         req(object())
         updateSelectizeInput(session, "geneSelect", choices = get_features(object(), assay = "gene"), server = TRUE)
 
-        formatted_col_names <- colnames(pull_metadata(object())) %>%
+        formatted_col_names <- colnames(get_cell_metadata(object())) %>%
             make_chevreul_clean_names()
 
         updateSelectizeInput(session, "varSelect", choices = formatted_col_names, selected = "batch")
@@ -1768,7 +1768,7 @@ plotCoverage <- function(input, output, session, object, plot_types, proj_dir, o
 
         plot_gene_coverage_by_var(
             genes_of_interest = input$geneSelect,
-            cell_metadata = pull_metadata(object()),
+            cell_metadata = get_cell_metadata(object()),
             bigwig_tbl = bigwig_tbl(),
             group_by = input$varSelect,
             values_of_interest = input$displayvalues,
@@ -1871,7 +1871,7 @@ reformatMetadataDR <- function(input, output, session, object, featureType = "ge
 
   table_out <- reactive({
     req(object())
-    pull_metadata(object())
+    get_cell_metadata(object())
   })
 
   values <- reactiveValues(

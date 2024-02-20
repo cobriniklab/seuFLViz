@@ -98,13 +98,13 @@ setMethod(
     "find_all_markers", "Seurat",
     function(object, group_by = NULL, object_assay = "gene", ...) {
         if (is.null(group_by)) {
-            resolutions <- colnames(pull_metadata(object))[grepl(paste0(object_assay, "_snn_res."), colnames(pull_metadata(object)))]
-            cluster_index <- grepl(paste0(object_assay, "_snn_res."), colnames(pull_metadata(object)))
+            resolutions <- colnames(get_cell_metadata(object))[grepl(paste0(object_assay, "_snn_res."), colnames(get_cell_metadata(object)))]
+            cluster_index <- grepl(paste0(object_assay, "_snn_res."), colnames(get_cell_metadata(object)))
             if (!any(cluster_index)) {
                 warning("no clusters found in metadata. runnings object_cluster")
                 object <- object_cluster(object, resolution = seq(0.2, 2, by = 0.2))
             }
-            clusters <- pull_metadata(object)[, cluster_index]
+            clusters <- get_cell_metadata(object)[, cluster_index]
             cluster_levels <- purrr::map_int(clusters, ~ length(unique(.x)))
             cluster_levels <- cluster_levels[cluster_levels > 1]
             clusters <- select(clusters, dplyr::one_of(names(cluster_levels)))
@@ -122,13 +122,13 @@ setMethod(
     "find_all_markers", "SingleCellExperiment",
     function(object, group_by = NULL, object_assay = "gene", ...) {
         if (is.null(group_by)) {
-            resolutions <- colnames(pull_metadata(object))[grepl(paste0(object_assay, "_snn_res."), colnames(pull_metadata(object)))]
-            cluster_index <- grepl(paste0(object_assay, "_snn_res."), colnames(pull_metadata(object)))
+            resolutions <- colnames(get_cell_metadata(object))[grepl(paste0(object_assay, "_snn_res."), colnames(get_cell_metadata(object)))]
+            cluster_index <- grepl(paste0(object_assay, "_snn_res."), colnames(get_cell_metadata(object)))
             if (!any(cluster_index)) {
                 warning("no clusters found in metadata. runnings object_cluster")
                 object <- object_cluster(object, resolution = seq(0.2, 2, by = 0.2))
             }
-            clusters <- pull_metadata(object)[, cluster_index]
+            clusters <- get_cell_metadata(object)[, cluster_index]
             cluster_levels <- purrr::map_int(clusters, ~ length(unique(.x)))
             cluster_levels <- cluster_levels[cluster_levels > 1]
             clusters <- select(clusters, dplyr::one_of(names(cluster_levels)))
