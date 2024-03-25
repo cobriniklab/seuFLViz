@@ -1,5 +1,5 @@
 Type: Package
-Package: chevreul
+Package: seuratTools
 Title: Tools for managing SingleCellExperiment objects as projects
 Version: 0.99.0
 Authors@R: c(
