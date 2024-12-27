@@ -14,3 +14,6 @@ euler/
 convert_function_to_method.R
 Rprof.out
 convert_cyclone_pairs_to_symbol.R
+*.pdf
+kept_genes_0.5.csv'
+*.csv
