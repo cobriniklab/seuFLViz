@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/whtns/chevreul.svg?branch=master)](https://travis-ci.org/whtns/chevreul)
+[![Travis build status](https://travis-ci.org/cobriniklab/chevreul.svg?branch=master)](https://travis-ci.org/cobriniklab/chevreul)
 <!-- badges: end -->
 
 # Chevreul
@@ -36,25 +36,25 @@ There are also convenient functions for:
 
 ## Installation
 
-You can install the released version of chevreul from <a href="https://github.com/whtns/chevreul" target="_blank" rel="noopener noreferrer">github</a> with:
+You can install the released version of chevreul from <a href="https://github.com/cobriniklab/chevreul" target="_blank" rel="noopener noreferrer">github</a> with:
 
 ### Install locally and run in three steps:
 
 ```{r}
 install.packages("devtools")
-devtools::install_github("whtns/chevreul")
+devtools::install_github("cobriniklab/chevreul")
 chevreul::create_project_db()
 ```
 
 ### Install locally (custom location!) and run in three steps:
 ```{r}
-devtools::install_github("whtns/chevreul")
+devtools::install_github("cobriniklab/chevreul")
 chevreul::create_project_db(destdir='/your/path/to/app')
 ```
 
 ## Site
 
-You can view documentation on the <a href="https://whtns.github.io/chevreul" target="_blank" rel="noopener noreferrer">chevreul website</a>
+You can view documentation on the <a href="https://cobriniklab.github.io/chevreul" target="_blank" rel="noopener noreferrer">chevreul website</a>
 
 ## How To 
 

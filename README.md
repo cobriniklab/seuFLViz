@@ -32,7 +32,7 @@ There are also convenient functions for:
 ## Installation
 
 You can install the released version of chevreul from
-<a href="https://github.com/whtns/chevreul" target="_blank" rel="noopener noreferrer">github</a>
+<a href="https://github.com/cobriniklab/chevreul" target="_blank" rel="noopener noreferrer">github</a>
 with:
 
 ### Install locally and run in three steps:
@@ -41,14 +41,14 @@ You can install Chevreul locally using the following steps:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("whtns/chevreul")
+devtools::install_github("cobriniklab/chevreul")
 chevreul::create_project_db()
 ```
 
 You can also customize the location of the app using these steps:
 
 ``` r
-devtools::install_github("whtns/chevreul")
+devtools::install_github("cobriniklab/chevreul")
 chevreul::create_project_db(destdir = "/your/path/to/app")
 ```
 
