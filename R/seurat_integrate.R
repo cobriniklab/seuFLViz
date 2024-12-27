@@ -15,7 +15,7 @@ old_harmony_integrate <- function(seu_list) {
     )
     seu_list.integrated <- FindNeighbors(seu_list.integrated,
         reduction = "harmony", dims = 1:30
-    ) %>% FindClusters()
+    ) |> FindClusters()
     seu_list.integrated <- RenameAssays(seu_list.integrated,
         RNA = "gene"
     )
@@ -52,7 +52,7 @@ harmony_integrate <- function(seu_list) {
 #' @examples
 merge_small_seus <- function(seu_list, k.filter = 50) {
     # check if any seurat objects are too small and if so merge with the first seurat object
-    seu_dims <- purrr::map(seu_list, dim) %>%
+    seu_dims <- purrr::map(seu_list, dim) |>
         purrr::map_lgl(~ .x[[2]] < k.filter)
 
     small_seus <- seu_list[seu_dims]
@@ -244,10 +244,10 @@ seurat_cluster <- function(seu = seu, resolution = 0.6, custom_clust = NULL, red
 
     if (!is.null(custom_clust)) {
         seu <- Seurat::StashIdent(object = seu, save.name = "old.ident")
-        clusters <- tibble::tibble("sample_id" = rownames(seu[[]])) %>%
-            tibble::rownames_to_column("order") %>%
-            dplyr::inner_join(custom_clust, by = "sample_id") %>%
-            dplyr::pull(cluster) %>%
+        clusters <- tibble::tibble("sample_id" = rownames(seu[[]])) |>
+            tibble::rownames_to_column("order") |>
+            dplyr::inner_join(custom_clust, by = "sample_id") |>
+            dplyr::pull(cluster) |>
             identity()
 
         Idents(object = seu) <- clusters
@@ -272,7 +272,7 @@ seurat_cluster <- function(seu = seu, resolution = 0.6, custom_clust = NULL, red
 load_seurat_path <- function(proj_dir = getwd(), prefix = "unfiltered") {
     seu_regex <- paste0(paste0(".*/", prefix, "_seu.rds"))
 
-    seu_path <- fs::path(proj_dir, "output", "seurat") %>%
+    seu_path <- fs::path(proj_dir, "output", "seurat") |>
         fs::dir_ls(regexp = seu_regex)
 
     if (!rlang::is_empty(seu_path)) {

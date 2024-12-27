@@ -1,7 +1,7 @@
 # seurat_integration_pipeline()
 
 test_that("integration pipeline works", {
-    batches <- panc8 %>%
+    batches <- panc8 |>
         Seurat::SplitObject(split.by = "tech")
 
     integrated_seu <- seurat_integration_pipeline(batches)

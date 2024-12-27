@@ -13,7 +13,7 @@
 #' @export
 #'
 #' @examples
-#' batches <- panc8 %>%
+#' batches <- panc8 |>
 #'     Seurat::SplitObject(split.by = "tech")
 #'
 #' integrated_seu <- integration_workflow(batches)

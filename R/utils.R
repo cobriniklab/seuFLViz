@@ -10,7 +10,7 @@
 #'
 #' @examples
 format_new_metadata <- function(seu, datapath) {
-    new_meta <- read_csv(datapath) %>%
+    new_meta <- read_csv(datapath) |>
         dplyr::mutate(across(contains("snn"), as.factor))
 
     rowname_col <- colnames(new_meta)[1]
@@ -52,11 +52,11 @@ combine_cols <- function(seu, cols, new_col) {
     # check class of cols to be coalesced
 
 
-    meta <- tibble::rownames_to_column(seu[[]]) %>%
-        dplyr::mutate_at(vars(one_of(cols)), as.character) %>%
-        dplyr::mutate(!!new_col := dplyr::coalesce(!!!syms(cols))) %>%
-        dplyr::select(-drop_cols) %>%
-        tibble::column_to_rownames(var = "rowname") %>%
+    meta <- tibble::rownames_to_column(seu[[]]) |>
+        dplyr::mutate_at(vars(one_of(cols)), as.character) |>
+        dplyr::mutate(!!new_col := dplyr::coalesce(!!!syms(cols))) |>
+        dplyr::select(-drop_cols) |>
+        tibble::column_to_rownames(var = "rowname") |>
         identity()
 }
 
@@ -99,27 +99,27 @@ list_plot_types <- function(seu) {
         num_levels = unlist(purrr::map(seu[[]], ~ length(unique(.x))))
     )
 
-    meta_types <- meta_types %>%
-        # dplyr::filter(!grepl("_snn_res", vars)) %>%
+    meta_types <- meta_types |>
+        # dplyr::filter(!grepl("_snn_res", vars)) |>
         dplyr::mutate(meta_type = dplyr::case_when(
             var_type %in% c("int", "dbl") ~ "continuous",
             var_type %in% c("chr", "fct", "ord", "lgl", "glue") ~ "category"
-        )) %>%
-        dplyr::mutate(meta_type = ifelse(meta_type == "continuous" & num_levels < 30, "category", meta_type)) %>%
-        dplyr::filter(num_levels > 1) %>%
+        )) |>
+        dplyr::mutate(meta_type = ifelse(meta_type == "continuous" & num_levels < 30, "category", meta_type)) |>
+        dplyr::filter(num_levels > 1) |>
         identity()
 
-    continuous_vars <- meta_types %>%
-        dplyr::filter(meta_type == "continuous") %>%
+    continuous_vars <- meta_types |>
+        dplyr::filter(meta_type == "continuous") |>
         dplyr::pull(vars)
 
-    continuous_vars <- c("feature", continuous_vars) %>%
+    continuous_vars <- c("feature", continuous_vars) |>
         purrr::set_names(stringr::str_to_title(stringr::str_replace_all(., "[[:punct:]]", " ")))
 
 
-    category_vars <- meta_types %>%
-        dplyr::filter(meta_type == "category") %>%
-        dplyr::pull(vars) %>%
+    category_vars <- meta_types |>
+        dplyr::filter(meta_type == "category") |>
+        dplyr::pull(vars) |>
         purrr::set_names(stringr::str_to_title(stringr::str_replace_all(., "[^[:alnum:][:space:]\\.]", " ")))
 
     plot_types <- list(category_vars = category_vars, continuous_vars = continuous_vars)
@@ -384,8 +384,8 @@ propagate_spreadsheet_changes <- function(updated_table, seu) {
 
     sample_ids <- rownames(meta)
 
-    meta <- meta %>%
-        dplyr::mutate(meta, across(contains("snn"), as.factor)) %>%
+    meta <- meta |>
+        dplyr::mutate(meta, across(contains("snn"), as.factor)) |>
         mutate(across(where(is.ordered), ~ as.factor(as.character(.x))))
 
     rownames(meta) <- sample_ids
@@ -461,19 +461,19 @@ update_project_db <- function(projects_dir = NULL,
     con <- DBI::dbConnect(RSQLite::SQLite(), fs::path(cache_location, sqlite_db))
 
     projects_tbl <-
-        fs::dir_ls(projects_dir, glob = "*.here", recurse = TRUE, fail = FALSE, all = TRUE) %>%
-        fs::path_dir(.) %>%
-        purrr::set_names(fs::path_file(.)) %>%
-        tibble::enframe("project_name", "project_path") %>%
-        dplyr::mutate(project_slug = stringr::str_remove(project_name, "_proj$")) %>%
-        dplyr::mutate(project_type = fs::path_file(fs::path_dir(project_path))) %>%
+        fs::dir_ls(projects_dir, glob = "*.here", recurse = TRUE, fail = FALSE, all = TRUE) |>
+        fs::path_dir(.) |>
+        purrr::set_names(path_file) |>
+        tibble::enframe("project_name", "project_path") |>
+        dplyr::mutate(project_slug = stringr::str_remove(project_name, "_proj$")) |>
+        dplyr::mutate(project_type = fs::path_file(fs::path_dir(project_path))) |>
         identity()
 
     current_projects_tbl <-
-        DBI::dbReadTable(con, "projects_tbl") %>%
-        dplyr::filter(fs::file_exists(project_path)) %>%
-        dplyr::filter(!project_path %in% projects_tbl$project_path) %>%
-        dplyr::bind_rows(projects_tbl) %>%
+        DBI::dbReadTable(con, "projects_tbl") |>
+        dplyr::filter(fs::file_exists(project_path)) |>
+        dplyr::filter(!project_path %in% projects_tbl$project_path) |>
+        dplyr::bind_rows(projects_tbl) |>
         dplyr::distinct(project_path, .keep_all = TRUE)
 
     DBI::dbWriteTable(con, "projects_tbl", projects_tbl, overwrite = TRUE)
@@ -507,18 +507,18 @@ append_to_project_db <- function(new_project_path, projects_dir = NULL,
     con <- DBI::dbConnect(RSQLite::SQLite(), fs::path(cache_location, sqlite_db))
 
     projects_tbl <-
-        new_project_path %>%
-        purrr::set_names(fs::path_file(.)) %>%
-        tibble::enframe("project_name", "project_path") %>%
-        dplyr::mutate(project_slug = stringr::str_remove(project_name, "_proj$")) %>%
-        dplyr::mutate(project_type = fs::path_file(fs::path_dir(project_path))) %>%
+        new_project_path |>
+        purrr::set_names(path_file) |>
+        tibble::enframe("project_name", "project_path") |>
+        dplyr::mutate(project_slug = stringr::str_remove(project_name, "_proj$")) |>
+        dplyr::mutate(project_type = fs::path_file(fs::path_dir(project_path))) |>
         identity()
 
     current_projects_tbl <-
-        DBI::dbReadTable(con, "projects_tbl") %>%
-        dplyr::filter(fs::file_exists(project_path)) %>%
-        dplyr::filter(!project_path %in% projects_tbl$project_path) %>%
-        dplyr::bind_rows(projects_tbl) %>%
+        DBI::dbReadTable(con, "projects_tbl") |>
+        dplyr::filter(fs::file_exists(project_path)) |>
+        dplyr::filter(!project_path %in% projects_tbl$project_path) |>
+        dplyr::bind_rows(projects_tbl) |>
         dplyr::distinct(project_path, .keep_all = TRUE)
 
     DBI::dbWriteTable(con, "projects_tbl", current_projects_tbl, overwrite = TRUE)
@@ -570,18 +570,18 @@ read_project_db <- function(projects_dir = NULL,
 #'
 #' @examples
 make_bigwig_db <- function(new_project = NULL, cache_location = "~/.cache/seuratTools/", sqlite_db = "bw-files.db") {
-    new_bigwigfiles <- fs::dir_ls(new_project, glob = "*.bw", recurse = TRUE) %>%
-        purrr::set_names(fs::path_file(.)) %>%
-        tibble::enframe("name", "bigWig") %>%
-        dplyr::mutate(sample_id = stringr::str_remove(name, "_Aligned.sortedByCoord.out.*bw$")) %>%
-        dplyr::filter(!stringr::str_detect(name, "integrated")) %>%
-        dplyr::distinct(sample_id, .keep_all = TRUE) %>%
+    new_bigwigfiles <- fs::dir_ls(new_project, glob = "*.bw", recurse = TRUE) |>
+        purrr::set_names(path_file) |>
+        tibble::enframe("name", "bigWig") |>
+        dplyr::mutate(sample_id = stringr::str_remove(name, "_Aligned.sortedByCoord.out.*bw$")) |>
+        dplyr::filter(!stringr::str_detect(name, "integrated")) |>
+        dplyr::distinct(sample_id, .keep_all = TRUE) |>
         identity()
 
     con <- DBI::dbConnect(RSQLite::SQLite(), dbname = fs::path(cache_location, sqlite_db))
 
     all_bigwigfiles <-
-        dbReadTable(con, "bigwigfiles") %>%
+        dbReadTable(con, "bigwigfiles") |>
         dplyr::bind_rows(new_bigwigfiles)
 
     DBI::dbWriteTable(con, "bigwigfiles", all_bigwigfiles, overwrite = TRUE)
@@ -602,17 +602,17 @@ metadata_from_batch <- function(batch, projects_dir = "/dataVolume/storage/singl
     db_path = "single-cell-projects.db") {
     mydb <- DBI::dbConnect(RSQLite::SQLite(), fs::path(projects_dir, db_path))
 
-    projects_tbl <- DBI::dbReadTable(mydb, "projects_tbl") %>%
+    projects_tbl <- DBI::dbReadTable(mydb, "projects_tbl") |>
         dplyr::filter(!project_type %in% c("integrated_projects", "resources"))
 
     DBI::dbDisconnect(mydb)
 
     metadata <-
-        projects_tbl %>%
-        dplyr::filter(project_slug == batch) %>%
-        dplyr::pull(project_path) %>%
-        fs::path("data") %>%
-        fs::dir_ls(glob = "*.csv") %>%
+        projects_tbl |>
+        dplyr::filter(project_slug == batch) |>
+        dplyr::pull(project_path) |>
+        fs::path("data") |>
+        fs::dir_ls(glob = "*.csv") |>
         identity()
 }
 
@@ -687,7 +687,7 @@ convert_seu_list_to_multimodal <- function(seu_list) {
 #'
 #' @examples
 make_seuratTools_clean_names <- function(myvec) {
-    myvec %>%
+    myvec |>
         purrr::set_names(stringr::str_to_title(stringr::str_replace_all(., "[^[:alnum:][:space:]\\.]", " ")))
 }
 

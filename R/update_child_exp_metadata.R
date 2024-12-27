@@ -37,10 +37,10 @@ update_exp_meta <- function(original_meta, corrected_meta) {
     right_side_columns <- dplyr::select(updated_meta, one_of(right_side_common))
     colnames(right_side_columns) <- gsub("\\.y$", "", colnames(right_side_columns))
 
-    updated_meta <- cbind(updated_meta, right_side_columns) %>%
-        dplyr::select(-one_of(left_side_common)) %>%
-        dplyr::select(-one_of(right_side_common)) %>%
-        dplyr::select(sample_id, everything()) %>%
-        # dplyr::select(common_cols) %>%
+    updated_meta <- cbind(updated_meta, right_side_columns) |>
+        dplyr::select(-one_of(left_side_common)) |>
+        dplyr::select(-one_of(right_side_common)) |>
+        dplyr::select(sample_id, everything()) |>
+        # dplyr::select(common_cols) |>
         identity()
 }

@@ -31,7 +31,7 @@ reformatMetadataDRui <- function(id) {
             dataOutputUI(ns("output-update"), icon = "file-download"),
             shinyjs::hidden(actionButton(ns("cut"), label = NULL, icon = icon("cut"))),
             dataEditUI(ns("edit1"))
-        ) %>%
+        ) |>
             default_helper(type = "markdown", content = "reformatMetadata")
     )
 }
@@ -128,9 +128,9 @@ reformatMetadataDR <- function(input, output, session, seu, featureType = "gene"
         values$rows <- NULL
         values$columns <- NULL
 
-        values$data <- table_out() %>%
-            DataEditR:::data_bind_rows(row_bind = row_bind) %>%
-            DataEditR:::data_bind_cols(col_bind = col_bind) %>%
+        values$data <- table_out() |>
+            DataEditR:::data_bind_rows(row_bind = row_bind) |>
+            DataEditR:::data_bind_cols(col_bind = col_bind) |>
             identity()
     })
 

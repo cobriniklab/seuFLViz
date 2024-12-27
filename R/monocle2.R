@@ -408,10 +408,10 @@ process_monocle_child <- function(ptime, monocle_cds, trend_formula = "~sm.ns(Ps
 #'
 #' @examples
 plot_all_ptimes <- function(monocle_list, query_name, sig_slice = 5000, ...) {
-    sig_gene_names <- dplyr::filter(monocle_list[[query_name]]$diff_test_res, pval < 0.05) %>%
-        dplyr::arrange(pval) %>%
-        dplyr::slice(1:sig_slice) %>%
-        dplyr::pull(gene_short_name) %>%
+    sig_gene_names <- dplyr::filter(monocle_list[[query_name]]$diff_test_res, pval < 0.05) |>
+        dplyr::arrange(pval) |>
+        dplyr::slice(1:sig_slice) |>
+        dplyr::pull(gene_short_name) |>
         identity()
 
     # sig_gene_names <- sig_gene_names[1:100]
@@ -478,7 +478,7 @@ cross_check_heatmaps <- function(monocle_list, query_name, set_row_order = NULL,
         monocle_list[[query_name]]$heatmap_matrix <- heatmap_matrix[rownames(heatmap_matrix) %in% set_row_order, ]
     }
 
-    common_genes <- purrr::map(monocle_list, ~ rownames(purrr::pluck(.x, "heatmap_matrix"))) %>%
+    common_genes <- purrr::map(monocle_list, ~ rownames(purrr::pluck(.x, "heatmap_matrix"))) |>
         purrr::reduce(intersect)
 
     if (length(set_row_order) > 0) {
@@ -513,11 +513,11 @@ cross_check_heatmaps <- function(monocle_list, query_name, set_row_order = NULL,
     if (length(set_row_order) > 0) {
         labels <- tibble::enframe(rownames(monocle_list[[query_name]]$heatmap_matrix), "order", "gene_short_name")
     } else {
-        clusters <- dendextend::cutree(query_results$row_dend, k = 6) %>%
+        clusters <- dendextend::cutree(query_results$row_dend, k = 6) |>
             tibble::enframe("gene_short_name", "cluster")
 
-        labels <- labels(query_results$row_dend) %>%
-            tibble::enframe("order", "gene_short_name") %>%
+        labels <- labels(query_results$row_dend) |>
+            tibble::enframe("order", "gene_short_name") |>
             dplyr::left_join(clusters, by = "gene_short_name")
     }
 
@@ -559,16 +559,16 @@ calc_cor_across_heatmaps <- function(cds_set, cds_set_name) {
 
     gene_names <- names(correlations[[1]])
 
-    correlations <- correlations %>%
+    correlations <- correlations |>
         dplyr::bind_cols()
 
     rownames(correlations) <- gene_names
 
-    correlations <- correlations %>%
+    correlations <- correlations |>
         tibble::rownames_to_column("gene_short_name")
 
     cds_set[[cds_set_name]][["ordered_diff_test_res"]] <-
-        cds_set[[cds_set_name]][["ordered_diff_test_res"]] %>%
+        cds_set[[cds_set_name]][["ordered_diff_test_res"]] |>
         dplyr::left_join(correlations, by = "gene_short_name")
 
     return(cds_set)

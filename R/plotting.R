@@ -12,8 +12,8 @@
 unite_metadata <- function(seu, metavars) {
     newcolname <- paste(metavars, collapse = "_by_")
 
-    newdata <- seu[[metavars]] %>%
-        tidyr::unite(!!newcolname, metavars) %>%
+    newdata <- seu[[metavars]] |>
+        tidyr::unite(!!newcolname, metavars) |>
         tibble::deframe()
 
     Idents(seu) <- newdata
@@ -283,12 +283,12 @@ plot_var <- function(seu, group = "batch", embedding = "umap", dims = c(1, 2), h
         return(d)
     }
 
-    plotly_plot <- plotly::ggplotly(d, tooltip = "cellid", height = 500) %>%
-        # htmlwidgets::onRender(javascript) %>%
-        # plotly::highlight(on = "plotly_selected", off = "plotly_relayout") %>%
-        plotly_settings() %>%
-        plotly::toWebGL() %>%
-        # plotly::partial_bundle() %>%
+    plotly_plot <- plotly::ggplotly(d, tooltip = "cellid", height = 500) |>
+        # htmlwidgets::onRender(javascript) |>
+        # plotly::highlight(on = "plotly_selected", off = "plotly_relayout") |>
+        plotly_settings() |>
+        plotly::toWebGL() |>
+        # plotly::partial_bundle() |>
         identity()
 }
 
@@ -304,8 +304,8 @@ plot_var <- function(seu, group = "batch", embedding = "umap", dims = c(1, 2), h
 #'
 #' @examples
 plotly_settings <- function(plotly_plot, width = 600, height = 700) {
-    plotly_plot %>%
-        plotly::layout(dragmode = "lasso") %>%
+    plotly_plot |>
+        plotly::layout(dragmode = "lasso") |>
         plotly::config(
             toImageButtonOptions = list(
                 format = "svg",
@@ -313,7 +313,7 @@ plotly_settings <- function(plotly_plot, width = 600, height = 700) {
                 width = width,
                 height = height
             )
-        ) %>%
+        ) |>
         identity()
 }
 
@@ -404,10 +404,10 @@ plot_feature <- function(seu, embedding = c("umap", "pca", "tsne"), features, di
         return(fp)
     }
 
-    plotly_plot <- plotly::ggplotly(fp, tooltip = "cellid", height = 500) %>%
-        plotly_settings() %>%
-        plotly::toWebGL() %>%
-        # plotly::partial_bundle() %>%
+    plotly_plot <- plotly::ggplotly(fp, tooltip = "cellid", height = 500) |>
+        plotly_settings() |>
+        plotly::toWebGL() |>
+        # plotly::partial_bundle() |>
         identity()
 }
 
@@ -473,8 +473,8 @@ plot_markers <- function(seu, metavar = "batch", num_markers = 5, selected_value
     marker_table <- seu@misc$markers[[metavar]][[marker_method]]
 
     markers <-
-        marker_table %>%
-        enframe_markers() %>%
+        marker_table |>
+        enframe_markers() |>
         dplyr::mutate(dplyr::across(.fns = as.character))
 
     if (!is.null(hide_technical)) {
@@ -495,39 +495,39 @@ plot_markers <- function(seu, metavar = "batch", num_markers = 5, selected_value
 
         min_length <- min(purrr::map_int(markers, length))
 
-        markers <- purrr::map(markers, head, min_length) %>%
+        markers <- purrr::map(markers, head, min_length) |>
             dplyr::bind_cols()
     }
 
     if (unique_markers) {
         markers <-
-            markers %>%
-            dplyr::mutate(precedence = row_number()) %>%
-            pivot_longer(-precedence, names_to = "group", values_to = "markers") %>%
-            dplyr::arrange(markers, precedence) %>%
-            dplyr::group_by(markers) %>%
-            dplyr::filter(row_number() == 1) %>%
-            dplyr::arrange(group, precedence) %>%
-            tidyr::drop_na() %>%
-            dplyr::group_by(group) %>%
-            dplyr::mutate(precedence = row_number()) %>%
-            tidyr::pivot_wider(names_from = "group", values_from = "markers") %>%
+            markers |>
+            dplyr::mutate(precedence = row_number()) |>
+            pivot_longer(-precedence, names_to = "group", values_to = "markers") |>
+            dplyr::arrange(markers, precedence) |>
+            dplyr::group_by(markers) |>
+            dplyr::filter(row_number() == 1) |>
+            dplyr::arrange(group, precedence) |>
+            tidyr::drop_na() |>
+            dplyr::group_by(group) |>
+            dplyr::mutate(precedence = row_number()) |>
+            tidyr::pivot_wider(names_from = "group", values_from = "markers") |>
             dplyr::select(-precedence)
     }
 
     sliced_markers <-
-        markers %>%
-        dplyr::slice_head(n = num_markers) %>%
-        tidyr::pivot_longer(everything(), names_to = "group", values_to = "feature") %>%
-        dplyr::arrange(group) %>%
-        dplyr::distinct(feature, .keep_all = TRUE) %>%
-        # dplyr::top_n(n = num_markers, wt = logFC) %>%
+        markers |>
+        dplyr::slice_head(n = num_markers) |>
+        tidyr::pivot_longer(everything(), names_to = "group", values_to = "feature") |>
+        dplyr::arrange(group) |>
+        dplyr::distinct(feature, .keep_all = TRUE) |>
+        # dplyr::top_n(n = num_markers, wt = logFC) |>
         identity()
 
     if (!is.null(selected_values)) {
         seu <- seu[, Idents(seu) %in% selected_values]
-        sliced_markers <- sliced_markers %>%
-            dplyr::filter(group %in% selected_values) %>%
+        sliced_markers <- sliced_markers |>
+            dplyr::filter(group %in% selected_values) |>
             dplyr::distinct(feature, .keep_all = TRUE)
     }
     # browser()
@@ -557,10 +557,10 @@ plot_markers <- function(seu, metavar = "batch", num_markers = 5, selected_value
     plot_height <- (150 * num_markers)
     plot_width <- (100 * length(levels(Idents(seu))))
 
-    markerplot <- plotly::ggplotly(markerplot, height = plot_height, width = plot_width) %>%
-        plotly_settings() %>%
-        plotly::toWebGL() %>%
-        # plotly::partial_bundle() %>%
+    markerplot <- plotly::ggplotly(markerplot, height = plot_height, width = plot_width) |>
+        plotly_settings() |>
+        plotly::toWebGL() |>
+        # plotly::partial_bundle() |>
         identity()
 
     return(list(plot = markerplot, markers = marker_table))
@@ -587,7 +587,7 @@ plot_markers <- function(seu, metavar = "batch", num_markers = 5, selected_value
 #'
 #' @importFrom ggplot2 ggplot aes geom_bar theme labs scale_y_log10
 plot_readcount <- function(seu, metavar = "nCount_RNA", color.by = "batch", yscale = "linear", return_plotly = FALSE, ...) {
-    seu_tbl <- tibble::rownames_to_column(seu[[]], "SID") %>%
+    seu_tbl <- tibble::rownames_to_column(seu[[]], "SID") |>
         dplyr::select(SID, !!as.symbol(metavar), !!as.symbol(color.by))
 
     rc_plot <-
@@ -613,12 +613,12 @@ plot_readcount <- function(seu, metavar = "nCount_RNA", color.by = "batch", ysca
         return(rc_plot)
     }
 
-    rc_plot <- plotly::ggplotly(rc_plot, tooltip = "cellid", height = 500) %>%
-        # htmlwidgets::onRender(javascript) %>%
-        # plotly::highlight(on = "plotly_selected", off = "plotly_relayout") %>%
-        plotly_settings() %>%
-        plotly::toWebGL() %>%
-        # plotly::partial_bundle() %>%
+    rc_plot <- plotly::ggplotly(rc_plot, tooltip = "cellid", height = 500) |>
+        # htmlwidgets::onRender(javascript) |>
+        # plotly::highlight(on = "plotly_selected", off = "plotly_relayout") |>
+        plotly_settings() |>
+        plotly::toWebGL() |>
+        # plotly::partial_bundle() |>
         identity()
 }
 
@@ -698,8 +698,8 @@ seu_complex_heatmap <- function(seu, features = NULL, group.by = "ident", cells 
     ))) {
         if ("pca" %in% Seurat::Reductions(seu)) {
             cluster_columns <-
-                Seurat::Embeddings(seu, embedding) %>%
-                dist() %>%
+                Seurat::Embeddings(seu, embedding) |>
+                dist() |>
                 hclust(col_arrangement)
         } else {
             message(glue("{embedding} not computed for this dataset; cells will be clustered by displayed features"))
@@ -707,9 +707,9 @@ seu_complex_heatmap <- function(seu, features = NULL, group.by = "ident", cells 
         }
     } else {
         cells <-
-            seu %>%
-            Seurat::FetchData(vars = col_arrangement) %>%
-            dplyr::arrange(across(all_of(col_arrangement))) %>%
+            seu |>
+            Seurat::FetchData(vars = col_arrangement) |>
+            dplyr::arrange(across(all_of(col_arrangement))) |>
             rownames()
 
         data <- data[cells, ]
@@ -722,11 +722,11 @@ seu_complex_heatmap <- function(seu, features = NULL, group.by = "ident", cells 
     group.by <- group.by %||% "ident"
     groups.use <- seu[[group.by]][cells, , drop = FALSE]
 
-    groups.use <- groups.use %>%
-        tibble::rownames_to_column("sample_id") %>%
-        dplyr::mutate(across(where(is.character), ~ str_wrap(str_replace_all(.x, ",", " "), 10))) %>%
-        dplyr::mutate(across(where(is.character), as.factor)) %>%
-        data.frame(row.names = 1) %>%
+    groups.use <- groups.use |>
+        tibble::rownames_to_column("sample_id") |>
+        dplyr::mutate(across(where(is.character), ~ str_wrap(str_replace_all(.x, ",", " "), 10))) |>
+        dplyr::mutate(across(where(is.character), as.factor)) |>
+        data.frame(row.names = 1) |>
         identity()
 
     # factor colors
@@ -735,7 +735,7 @@ seu_complex_heatmap <- function(seu, features = NULL, group.by = "ident", cells 
     if (length(groups.use.factor) > 0) {
         ha_col_names.factor <- lapply(groups.use.factor, levels)
 
-        ha_cols.factor <- purrr::map(ha_col_names.factor, ~ scales::hue_pal()(length(.x))) %>%
+        ha_cols.factor <- purrr::map(ha_col_names.factor, ~ scales::hue_pal()(length(.x))) |>
             purrr::map2(ha_col_names.factor, purrr::set_names)
     }
 
@@ -790,16 +790,16 @@ seu_complex_heatmap <- function(seu, features = NULL, group.by = "ident", cells 
 #' plot_transcript_composition(human_gene_transcript_seu, "RXRG", group.by = "gene_snn_res.0.6")
 #'
 plot_transcript_composition <- function(seu, gene_symbol, group.by = "batch", standardize = FALSE, drop_zero = FALSE) {
-    transcripts <- annotables::grch38 %>%
-        dplyr::filter(symbol == gene_symbol) %>%
-        dplyr::left_join(annotables::grch38_tx2gene, by = "ensgene") %>%
+    transcripts <- annotables::grch38 |>
+        dplyr::filter(symbol == gene_symbol) |>
+        dplyr::left_join(annotables::grch38_tx2gene, by = "ensgene") |>
         dplyr::pull(enstxp)
 
     metadata <- seu@meta.data
     metadata$sample_id <- NULL
     metadata <-
-        metadata %>%
-        tibble::rownames_to_column("sample_id") %>%
+        metadata |>
+        tibble::rownames_to_column("sample_id") |>
         dplyr::select(sample_id, group.by = {{ group.by }})
 
     data <- FetchData(seu$transcript, vars = transcripts)
@@ -807,15 +807,15 @@ plot_transcript_composition <- function(seu, gene_symbol, group.by = "batch", st
     data <- expm1(as.matrix(data))
 
     data <-
-        data %>%
-        as.data.frame() %>%
-        tibble::rownames_to_column("sample_id") %>%
+        data |>
+        as.data.frame() |>
+        tibble::rownames_to_column("sample_id") |>
         tidyr::pivot_longer(
             cols = starts_with("ENST"),
             names_to = "transcript",
             values_to = "expression"
-        ) %>%
-        dplyr::left_join(metadata, by = "sample_id") %>%
+        ) |>
+        dplyr::left_join(metadata, by = "sample_id") |>
         dplyr::mutate(
             group.by = as.factor(group.by),
             transcript = as.factor(transcript)
@@ -886,7 +886,7 @@ plot_all_transcripts <- function(seu, features, embedding = "umap", from_gene = 
     plot_out <- purrr::map(paste0("transcript_", features), ~ plot_feature(seu,
         embedding = embedding,
         features = .x, return_plotly = FALSE
-    )) %>%
+    )) |>
         purrr::set_names(features)
 
     if (combine) {

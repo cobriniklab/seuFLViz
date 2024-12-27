@@ -14,7 +14,7 @@ convert_seu_to_cds <- function(seu, resolution = 1, min_expression = 0.05) {
     # # drop sample_name metadata column as that is reserved by monocle3
     # seu$sample_name <- NULL
     #
-    # cds <- SeuratWrappers::as.cell_data_set(seu) %>%
+    # cds <- SeuratWrappers::as.cell_data_set(seu) |>
     #   monocle3::estimate_size_factors()
     #
     # rowData(cds)$gene_short_name <- rownames(cds)
@@ -182,11 +182,11 @@ plot_cds <- function(cds, color_cells_by = NULL, genes = NULL, return_plotly = T
 
     if (return_plotly) {
         cds_plot <-
-            cds_plot %>%
-            plotly::ggplotly(height = 400) %>%
-            plotly_settings() %>%
-            plotly::toWebGL() %>%
-            # plotly::partial_bundle() %>%
+            cds_plot |>
+            plotly::ggplotly(height = 400) |>
+            plotly_settings() |>
+            plotly::toWebGL() |>
+            # plotly::partial_bundle() |>
             identity()
     }
 
@@ -231,11 +231,11 @@ plot_pseudotime <- function(cds, resolution, color_cells_by = NULL, genes = NULL
         NULL
 
     cds_plot <-
-        cds_plot %>%
-        plotly::ggplotly(height = 400) %>%
-        plotly_settings() %>%
-        plotly::toWebGL() %>%
-        # plotly::partial_bundle() %>%
+        cds_plot |>
+        plotly::ggplotly(height = 400) |>
+        plotly_settings() |>
+        plotly::toWebGL() |>
+        # plotly::partial_bundle() |>
         identity()
 
     # print(cds_plot)
@@ -275,12 +275,12 @@ plot_monocle_features <- function(cds, resolution, genes = NULL, ...) {
         NULL
 
     cds_plot <-
-        cds_plot %>%
-        plotly::ggplotly(height = 400) %>%
-        plotly::ggplotly(height = 400) %>%
-        plotly_settings() %>%
-        plotly::toWebGL() %>%
-        # plotly::partial_bundle() %>%
+        cds_plot |>
+        plotly::ggplotly(height = 400) |>
+        plotly::ggplotly(height = 400) |>
+        plotly_settings() |>
+        plotly::toWebGL() |>
+        # plotly::partial_bundle() |>
         identity()
 
     # print(cds_plot)
@@ -460,33 +460,33 @@ plot_cells <- function(cds, x = 1, y = 2, reduction_method = c(
         ]
     }
     if (show_trajectory_graph) {
-        ica_space_df <- t(cds@principal_graph_aux[[reduction_method]]$dp_mst) %>%
-            as.data.frame() %>%
+        ica_space_df <- t(cds@principal_graph_aux[[reduction_method]]$dp_mst) |>
+            as.data.frame() |>
             dplyr::select_(
                 prin_graph_dim_1 = x,
                 prin_graph_dim_2 = y
-            ) %>%
+            ) |>
             dplyr::mutate(
                 sample_name = rownames(.),
                 sample_state = rownames(.)
             )
         dp_mst <- cds@principal_graph[[reduction_method]]
-        edge_df <- dp_mst %>%
-            igraph::as_data_frame() %>%
+        edge_df <- dp_mst |>
+            igraph::as_data_frame() |>
             dplyr::select_(
                 source = "from",
                 target = "to"
-            ) %>%
+            ) |>
             dplyr::left_join(
-                ica_space_df %>%
+                ica_space_df |>
                     dplyr::select_(
                         source = "sample_name", source_prin_graph_dim_1 = "prin_graph_dim_1",
                         source_prin_graph_dim_2 = "prin_graph_dim_2"
                     ),
                 by = "source"
-            ) %>%
+            ) |>
             dplyr::left_join(
-                ica_space_df %>%
+                ica_space_df |>
                     dplyr::select_(
                         target = "sample_name", target_prin_graph_dim_1 = "prin_graph_dim_1",
                         target_prin_graph_dim_2 = "prin_graph_dim_2"
@@ -575,11 +575,11 @@ plot_cells <- function(cds, x = 1, y = 2, reduction_method = c(
                 markers_exprs <- dplyr::group_by(
                     markers_exprs,
                     feature_label
-                ) %>%
+                ) |>
                     dplyr::mutate(
                         max_val_for_feature = max(value),
                         min_val_for_feature = min(value)
-                    ) %>%
+                    ) |>
                     dplyr::mutate(value = 100 *
                         (value - min_val_for_feature) / (max_val_for_feature -
                             min_val_for_feature))
@@ -601,45 +601,45 @@ plot_cells <- function(cds, x = 1, y = 2, reduction_method = c(
             if (is.character(data_df$cell_color) || is.factor(data_df$cell_color)) {
                 if (label_groups_by_cluster && is.null(data_df$cell_group) ==
                     FALSE) {
-                    text_df <- data_df %>%
-                        dplyr::group_by(cell_group) %>%
-                        dplyr::mutate(cells_in_cluster = dplyr::n()) %>%
-                        dplyr::group_by(cell_color, add = TRUE) %>%
+                    text_df <- data_df |>
+                        dplyr::group_by(cell_group) |>
+                        dplyr::mutate(cells_in_cluster = dplyr::n()) |>
+                        dplyr::group_by(cell_color, add = TRUE) |>
                         dplyr::mutate(per = dplyr::n() / cells_in_cluster)
-                    median_coord_df <- text_df %>% dplyr::summarize(
+                    median_coord_df <- text_df |> dplyr::summarize(
                         fraction_of_group = dplyr::n(),
                         text_x = stats::median(x = data_dim_1),
                         text_y = stats::median(x = data_dim_2)
                     )
-                    text_df <- suppressMessages(text_df %>% dplyr::select(per) %>%
+                    text_df <- suppressMessages(text_df |> dplyr::select(per) |>
                         dplyr::distinct())
                     text_df <- suppressMessages(dplyr::inner_join(
                         text_df,
                         median_coord_df
                     ))
-                    text_df <- text_df %>%
-                        dplyr::group_by(cell_group) %>%
+                    text_df <- text_df |>
+                        dplyr::group_by(cell_group) |>
                         dplyr::top_n(labels_per_group, per)
                 } else {
-                    text_df <- data_df %>%
-                        dplyr::group_by(cell_color) %>%
+                    text_df <- data_df |>
+                        dplyr::group_by(cell_color) |>
                         dplyr::mutate(per = 1)
-                    median_coord_df <- text_df %>% dplyr::summarize(
+                    median_coord_df <- text_df |> dplyr::summarize(
                         fraction_of_group = dplyr::n(),
                         text_x = stats::median(x = data_dim_1),
                         text_y = stats::median(x = data_dim_2)
                     )
-                    text_df <- suppressMessages(text_df %>% dplyr::select(per) %>%
+                    text_df <- suppressMessages(text_df |> dplyr::select(per) |>
                         dplyr::distinct())
                     text_df <- suppressMessages(dplyr::inner_join(
                         text_df,
                         median_coord_df
                     ))
-                    text_df <- text_df %>%
-                        dplyr::group_by(cell_color) %>%
+                    text_df <- text_df |>
+                        dplyr::group_by(cell_color) |>
                         dplyr::top_n(labels_per_group, per)
                 }
-                text_df$label <- as.character(text_df %>% dplyr::pull(cell_color))
+                text_df$label <- as.character(text_df |> dplyr::pull(cell_color))
             } else {
                 message(paste(
                     "Cells aren't colored in a way that allows them to",
@@ -763,11 +763,11 @@ plot_cells <- function(cds, x = 1, y = 2, reduction_method = c(
         )
         if (label_branch_points) {
             mst_branch_nodes <- branch_nodes(cds)
-            branch_point_df <- ica_space_df %>%
+            branch_point_df <- ica_space_df |>
                 dplyr::slice(match(
                     names(mst_branch_nodes),
                     sample_name
-                )) %>%
+                )) |>
                 dplyr::mutate(branch_point_idx = seq_len(dplyr::n()))
             g <- g + geom_point(
                 aes_string(
@@ -788,11 +788,11 @@ plot_cells <- function(cds, x = 1, y = 2, reduction_method = c(
         }
         if (label_leaves) {
             mst_leaf_nodes <- leaf_nodes(cds)
-            leaf_df <- ica_space_df %>%
+            leaf_df <- ica_space_df |>
                 dplyr::slice(match(
                     names(mst_leaf_nodes),
                     sample_name
-                )) %>%
+                )) |>
                 dplyr::mutate(leaf_idx = seq_len(dplyr::n()))
             g <- g + geom_point(
                 aes_string(
@@ -813,11 +813,11 @@ plot_cells <- function(cds, x = 1, y = 2, reduction_method = c(
         }
         if (label_roots) {
             mst_root_nodes <- monocle3:::root_nodes(cds)
-            root_df <- ica_space_df %>%
+            root_df <- ica_space_df |>
                 dplyr::slice(match(
                     names(mst_root_nodes),
                     sample_name
-                )) %>%
+                )) |>
                 dplyr::mutate(root_idx = seq_len(dplyr::n()))
             g <- g + geom_point(
                 aes_string(
@@ -867,7 +867,7 @@ plot_cells <- function(cds, x = 1, y = 2, reduction_method = c(
 #' @examples
 threshold_monocle_genes <- function(seu, cds, min_expression = 0.05) {
     # browser()
-    agg_mat <- Seurat::GetAssayData(seu, assay = "gene") %>%
+    agg_mat <- Seurat::GetAssayData(seu, assay = "gene") |>
         as.matrix()
 
     lgl_agg_mat <- agg_mat > min_expression
@@ -919,34 +919,34 @@ monocle_module_heatmap <- function(cds, pr_deg_ids, seu_resolution, cells = NULL
 
     cds <- cds[pr_deg_ids, ]
 
-    cds2 <- monocle3::preprocess_cds(cds) %>%
+    cds2 <- monocle3::preprocess_cds(cds) |>
         monocle3::reduce_dimension(
             max_components = 2,
             reduction_method = "UMAP"
         )
 
-    thresholded_genes <- monocle3::fData(cds) %>%
-        tibble::as_tibble() %>%
-        dplyr::mutate(id = gene_short_name) %>%
+    thresholded_genes <- monocle3::fData(cds) |>
+        tibble::as_tibble() |>
+        dplyr::mutate(id = gene_short_name) |>
         dplyr::filter(percent_cells > 0.05)
 
     cds <- cds[rownames(cds) %in% thresholded_genes$id, ]
 
-    gene_module_df <- monocle3::find_gene_modules(cds2, resolution = resolution) %>%
-        dplyr::arrange(module) %>%
-        dplyr::filter(id %in% rownames(cds)) %>%
-        dplyr::left_join(thresholded_genes, by = "id") %>%
+    gene_module_df <- monocle3::find_gene_modules(cds2, resolution = resolution) |>
+        dplyr::arrange(module) |>
+        dplyr::filter(id %in% rownames(cds)) |>
+        dplyr::left_join(thresholded_genes, by = "id") |>
         identity()
 
     cell_group_df <- tibble::tibble(
         cell = row.names(colData(cds)),
         cell_group = colData(cds)[[seu_resolution]]
-    ) %>%
+    ) |>
         dplyr::mutate(cell_group = cell)
 
     if (collapse_rows != TRUE) {
         heatmap_row_df <-
-            dplyr::select(gene_module_df, id) %>%
+            dplyr::select(gene_module_df, id) |>
             dplyr::mutate(module = id)
 
         module_levels <- levels(gene_module_df$module)
@@ -978,16 +978,16 @@ monocle_module_heatmap <- function(cds, pr_deg_ids, seu_resolution, cells = NULL
     cells <- cells %||% colnames(x = cds)
 
     pseudotime_tbl <-
-        monocle3::pseudotime(cds) %>%
+        monocle3::pseudotime(cds) |>
         tibble::enframe("sample_id", "pseudotime")
 
-    groups.use <- colData(cds)[cells, group.by, drop = FALSE] %>%
-        as.data.frame() %>%
-        tibble::rownames_to_column("sample_id") %>%
-        dplyr::mutate(across(where(is.character), as.factor)) %>%
-        dplyr::left_join(pseudotime_tbl, by = "sample_id") %>%
-        dplyr::arrange(pseudotime) %>%
-        data.frame(row.names = 1) %>%
+    groups.use <- colData(cds)[cells, group.by, drop = FALSE] |>
+        as.data.frame() |>
+        tibble::rownames_to_column("sample_id") |>
+        dplyr::mutate(across(where(is.character), as.factor)) |>
+        dplyr::left_join(pseudotime_tbl, by = "sample_id") |>
+        dplyr::arrange(pseudotime) |>
+        data.frame(row.names = 1) |>
         identity()
 
 
@@ -997,7 +997,7 @@ monocle_module_heatmap <- function(cds, pr_deg_ids, seu_resolution, cells = NULL
     ha_cols.factor <- NULL
     if (length(groups.use.factor) > 0) {
         ha_col_names.factor <- lapply(groups.use.factor, levels)
-        ha_cols.factor <- purrr::map(ha_col_names.factor, ~ (scales::hue_pal())(length(.x))) %>%
+        ha_cols.factor <- purrr::map(ha_col_names.factor, ~ (scales::hue_pal())(length(.x))) |>
             purrr::map2(ha_col_names.factor, set_names)
     }
     groups.use.numeric <- groups.use[sapply(groups.use, is.numeric)]
@@ -1069,14 +1069,14 @@ flip_pseudotime <- function(cds) {
 }
 
 export_pseudotime <- function(cds, root_cells) {
-    root_cells <- root_cells %>%
-        set_names(.) %>%
-        tibble::enframe("sample_id", "root_cell") %>%
+    root_cells <- root_cells |>
+        set_names() |>
+        tibble::enframe("sample_id", "root_cell") |>
         dplyr::mutate(root_cell = 1)
 
-    monocle_pt <- monocle3::pseudotime(cds) %>%
-        tibble::enframe("sample_id", "pseudotime") %>%
-        dplyr::arrange(pseudotime) %>%
+    monocle_pt <- monocle3::pseudotime(cds) |>
+        tibble::enframe("sample_id", "pseudotime") |>
+        dplyr::arrange(pseudotime) |>
         dplyr::left_join(root_cells, by = "sample_id")
 
     return(monocle_pt)

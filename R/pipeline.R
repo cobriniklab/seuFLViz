@@ -17,7 +17,7 @@
 #'
 #' @examples
 #'
-#' batches <- panc8 %>%
+#' batches <- panc8 |>
 #'     Seurat::SplitObject(split.by = "tech")
 #'
 #' integrated_seu <- seurat_integration_pipeline(batches)
@@ -91,7 +91,7 @@ seurat_integration_pipeline <- function(seu_list, resolution = seq(0.2, 2.0, by 
 #'
 #' @examples
 #'
-#' batches <- panc8 %>%
+#' batches <- panc8 |>
 #'     Seurat::SplitObject(split.by = "tech")
 #'
 #' integrated_seu <- seurat_integration_pipeline(batches)

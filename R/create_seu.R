@@ -42,12 +42,12 @@ load_counts_by_tximport <- function(proj_dir, type = "salmon", countsFromAbundan
     ), sample_files <- fs::path(
         proj_dir, "output",
         type
-    ) %>% fs::dir_ls(recurse = T, glob = sample_glob) %>%
+    ) |> fs::dir_ls(recurse = T, glob = sample_glob) |>
         identity())
 
-    tx2gene <- ensembldb::transcripts(edb, return.type = "data.frame")[, c("tx_id", "gene_id")] %>%
-        dplyr::left_join(annotables::grch38, by = c("gene_id" = "ensgene")) %>%
-        dplyr::select(tx_id, symbol) %>%
+    tx2gene <- ensembldb::transcripts(edb, return.type = "data.frame")[, c("tx_id", "gene_id")] |>
+        dplyr::left_join(annotables::grch38, by = c("gene_id" = "ensgene")) |>
+        dplyr::select(tx_id, symbol) |>
         tidyr::drop_na()
 
     txi_transcripts <- tximport::tximport(sample_files, type = type, tx2gene = tx2gene, txOut = T, countsFromAbundance = countsFromAbundance, ignoreTxVersion = TRUE)

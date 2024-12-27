@@ -69,7 +69,7 @@ minimalSeuratApp <- function(object = panc8, loom_path = NULL, appTitle = NULL,
         shinydashboard::tabItems(
             shinydashboard::tabItem(
                 tabName = "comparePlots",
-                h2("Compare Plots") %>%
+                h2("Compare Plots") |>
                     default_helper(type = "markdown", content = "comparePlots"),
                 plotDimRedui("plotdimred1"),
                 plotDimRedui("plotdimred2"),
@@ -105,7 +105,7 @@ minimalSeuratApp <- function(object = panc8, loom_path = NULL, appTitle = NULL,
             ),
             shinydashboard::tabItem(
                 tabName = "subsetSeurat",
-                h2("Subset Seurat Input") %>%
+                h2("Subset Seurat Input") |>
                     default_helper(type = "markdown", content = "subsetSeurat"),
                 plotDimRedui("subset"),
                 seuratToolsBox(
@@ -139,7 +139,7 @@ minimalSeuratApp <- function(object = panc8, loom_path = NULL, appTitle = NULL,
             ),
             shinydashboard::tabItem(
                 tabName = "diffex",
-                h2("Differential Expression") %>%
+                h2("Differential Expression") |>
                     default_helper(type = "markdown", content = "diffex"),
                 plotDimRedui("diffex"),
                 diffexui("diffex")
@@ -177,7 +177,7 @@ minimalSeuratApp <- function(object = panc8, loom_path = NULL, appTitle = NULL,
                         ),
                         textInput("geneSetName", "Name for Gene Set"),
                         width = 12
-                    ) %>%
+                    ) |>
                         default_helper(type = "markdown", content = "regressFeatures")
                 )
             ), shinydashboard::tabItem(

@@ -12,10 +12,10 @@
 build_bigwig_db <- function(bam_files, bigwig_db = "~/.cache/seuratTools/bw-files.db") {
     bam_files <- fs::path_abs(bam_files)
 
-    bigwigfiles <- purrr::map_chr(bam_files, ~ megadepth::bam_to_bigwig(.x, prefix = fs::path_ext_remove(.x), overwrite = TRUE)) %>%
-        purrr::set_names(fs::path_file) %>%
-        tibble::enframe("name", "bigWig") %>%
-        dplyr::mutate(sample_id = stringr::str_remove(name, "_Aligned.sortedByCoord.out.bw")) %>%
+    bigwigfiles <- purrr::map_chr(bam_files, ~ megadepth::bam_to_bigwig(.x, prefix = fs::path_ext_remove(.x), overwrite = TRUE)) |>
+        purrr::set_names(fs::path_file) |>
+        tibble::enframe("name", "bigWig") |>
+        dplyr::mutate(sample_id = stringr::str_remove(name, "_Aligned.sortedByCoord.out.bw")) |>
         identity()
 
     con <- DBI::dbConnect(RSQLite::SQLite(), dbname = bigwig_db)
@@ -39,11 +39,11 @@ build_bigwig_db <- function(bam_files, bigwig_db = "~/.cache/seuratTools/bw-file
 load_bigwigs <- function(seu, bigwig_db = "~/.cache/seuratTools/bw-files.db") {
     con <- DBI::dbConnect(RSQLite::SQLite(), dbname = bigwig_db)
 
-    bigwigfiles <- DBI::dbReadTable(con, "bigwigfiles") %>%
-        dplyr::filter(sample_id %in% colnames(seu)) %>%
+    bigwigfiles <- DBI::dbReadTable(con, "bigwigfiles") |>
+        dplyr::filter(sample_id %in% colnames(seu)) |>
         identity()
 
-    missing_bigwigs <- colnames(seu)[!(colnames(seu) %in% bigwigfiles$sample_id)] %>%
+    missing_bigwigs <- colnames(seu)[!(colnames(seu) %in% bigwigfiles$sample_id)] |>
         paste(collapse = ", ")
 
     warning(paste0("Sample coverage files ", missing_bigwigs, "(.bw) do not match samples in seurat object (check file names)"))
@@ -51,7 +51,7 @@ load_bigwigs <- function(seu, bigwig_db = "~/.cache/seuratTools/bw-files.db") {
     DBI::dbDisconnect(con)
 
     bigwigfiles <-
-        bigwigfiles %>%
+        bigwigfiles |>
         dplyr::filter(sample_id %in% colnames(seu))
 
     return(bigwigfiles)
@@ -99,23 +99,23 @@ plot_gene_coverage_by_var <- function(genes_of_interest = "RXRG",
 
 
     new_track_data <-
-        cell_metadata %>%
-        tibble::rownames_to_column("sample_id") %>%
+        cell_metadata |>
+        tibble::rownames_to_column("sample_id") |>
         dplyr::select(sample_id,
             condition = {{ var_of_interest }},
             track_id = {{ var_of_interest }},
             colour_group = {{ var_of_interest }},
             everything()
-        ) %>%
-        dplyr::mutate(scaling_factor = 1) %>% # scales::rescale(nCount_RNA)
-        dplyr::mutate(condition = as.factor(condition), colour_group = as.factor(colour_group)) %>%
-        dplyr::left_join(bigwig_tbl, by = "sample_id") %>%
-        dplyr::filter(!is.na(bigWig)) %>%
+        ) |>
+        dplyr::mutate(scaling_factor = 1) |> # scales::rescale(nCount_RNA)
+        dplyr::mutate(condition = as.factor(condition), colour_group = as.factor(colour_group)) |>
+        dplyr::left_join(bigwig_tbl, by = "sample_id") |>
+        dplyr::filter(!is.na(bigWig)) |>
         identity()
 
     if (!is.null(values_of_interest)) {
         new_track_data <-
-            new_track_data %>%
+            new_track_data |>
             dplyr::filter(condition %in% values_of_interest)
     }
 
@@ -171,12 +171,12 @@ plot_gene_coverage_by_var <- function(genes_of_interest = "RXRG",
 
     x_lim <- ggplot2::ggplot_build(coverage_plot_list$coverage_plot)$layout$panel_params[[1]]$x.range
 
-    base_coverage <- coverage_plot_list$coverage_plot$data %>%
-        dplyr::filter(!is.na(coverage)) %>%
-        # tidyr::drop_na() %>%
-        dplyr::group_by(sample_id, colour_group) %>%
-        dplyr::summarize(sum = signif(sum(coverage), 4)) %>%
-        dplyr::mutate(sum = sum / diff(x_lim)) %>%
+    base_coverage <- coverage_plot_list$coverage_plot$data |>
+        dplyr::filter(!is.na(coverage)) |>
+        # tidyr::drop_na() |>
+        dplyr::group_by(sample_id, colour_group) |>
+        dplyr::summarize(sum = signif(sum(coverage), 4)) |>
+        dplyr::mutate(sum = sum / diff(x_lim)) |>
         identity()
 
     coverage_plot <- patchwork::wrap_plots(coverage_plot_list, heights = heights, ncol = 1)

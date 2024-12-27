@@ -34,7 +34,7 @@ reference_integrate <- function(ref_seu, query_seu, query_name = "fetal", ref_na
     refdata <- t(ref_seu[[reference_clusters]])
 
     cellids <- colnames(refdata)
-    refdata <- setNames(split(refdata, seq(nrow(refdata))), rownames(refdata)) %>%
+    refdata <- setNames(split(refdata, seq(nrow(refdata))), rownames(refdata)) |>
         purrr::map(purrr::set_names, cellids)
 
     ref_names <- stringr::str_replace(reference_clusters, ".*snn_res", ref_name)
@@ -44,13 +44,13 @@ reference_integrate <- function(ref_seu, query_seu, query_name = "fetal", ref_na
         dims = 1:30
     ))
     predictions0 <-
-        predictions %>%
-        purrr::map(as_tibble, rownames = "sample_id") %>%
-        purrr::map(~ dplyr::select(.x, sample_id, predicted.id)) %>%
-        dplyr::bind_rows(.id = "resolution") %>%
-        tidyr::spread(resolution, predicted.id) %>%
-        purrr::set_names(c("sample_id", ref_names)) %>%
-        tibble::column_to_rownames("sample_id") %>%
+        predictions |>
+        purrr::map(as_tibble, rownames = "sample_id") |>
+        purrr::map(~ dplyr::select(.x, sample_id, predicted.id)) |>
+        dplyr::bind_rows(.id = "resolution") |>
+        tidyr::spread(resolution, predicted.id) |>
+        purrr::set_names(c("sample_id", ref_names)) |>
+        tibble::column_to_rownames("sample_id") |>
         identity()
 
     query_seu <- AddMetaData(query_seu, predictions0)
@@ -69,13 +69,13 @@ reference_integrate <- function(ref_seu, query_seu, query_name = "fetal", ref_na
 #' @examples
 seurat_find_markers <- function(seu, num_features) {
     markers <- Seurat::FindAllMarkers(seu, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
-    markers %>%
-        group_by(cluster) %>%
+    markers |>
+        group_by(cluster) |>
         top_n(n = 2, wt = avg_logFC)
 
-    cluster_markers <- reference.markers$gene %>%
-        group_by(cluster) %>%
-        top_n(n = num_features, wt = avg_logFC) %>%
+    cluster_markers <- reference.markers$gene |>
+        group_by(cluster) |>
+        top_n(n = num_features, wt = avg_logFC) |>
         dplyr::pull(gene)
 
     DoHeatmap(reference_integrated[[1]], features = cluster_markers)

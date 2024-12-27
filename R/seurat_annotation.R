@@ -20,11 +20,11 @@ annotate_cell_cycle <- function(seu, organism = "human", ...) {
 
     if (organism == "mouse") {
         s_genes <-
-            dplyr::filter(human_to_mouse_homologs, HGNC.symbol %in% s_genes) %>%
+            dplyr::filter(human_to_mouse_homologs, HGNC.symbol %in% s_genes) |>
             dplyr::pull(MGI.symbol)
 
         g2m_genes <-
-            dplyr::filter(human_to_mouse_homologs, HGNC.symbol %in% g2m_genes) %>%
+            dplyr::filter(human_to_mouse_homologs, HGNC.symbol %in% g2m_genes) |>
             dplyr::pull(MGI.symbol)
     }
 
@@ -57,9 +57,9 @@ genes_to_transcripts <- function(genes, organism = "human") {
         )
     }
 
-    feature_table %>%
-        as_tibble() %>%
-        dplyr::filter(gene_name %in% genes) %>%
+    feature_table |>
+        as_tibble() |>
+        dplyr::filter(gene_name %in% genes) |>
         dplyr::pull(tx_id)
 }
 
@@ -87,10 +87,10 @@ transcripts_to_genes <- function(transcripts, organism = "human") {
         transcript_table <- annotables::grcm38_tx2gene
     }
 
-    tibble::tibble(enstxp = transcripts) %>%
-        dplyr::left_join(transcript_table, by = "enstxp") %>%
-        dplyr::left_join(gene_table, by = "ensgene") %>%
-        dplyr::pull("symbol") %>%
+    tibble::tibble(enstxp = transcripts) |>
+        dplyr::left_join(transcript_table, by = "enstxp") |>
+        dplyr::left_join(gene_table, by = "ensgene") |>
+        dplyr::pull("symbol") |>
         identity()
 }
 
@@ -153,22 +153,22 @@ annotate_excluded <- function(seu, ...) {
 
     excluded_cells <- list(...)
 
-    excluded_cells <- purrr::map2(excluded_cells, names(excluded_cells), ~ rep(.y, length(.x))) %>%
-        unlist() %>%
-        purrr::set_names(unlist(excluded_cells)) %>%
+    excluded_cells <- purrr::map2(excluded_cells, names(excluded_cells), ~ rep(.y, length(.x))) |>
+        unlist() |>
+        purrr::set_names(unlist(excluded_cells)) |>
         tibble::enframe("sample_id", "excluded_because")
 
-    excluded_because <- tibble::as_tibble(seu[["nCount_RNA"]], rownames = "sample_id") %>%
+    excluded_because <- tibble::as_tibble(seu[["nCount_RNA"]], rownames = "sample_id") |>
         dplyr::full_join(excluded_cells, by = "sample_id")
 
     if ("excluded_because.x" %in% colnames(excluded_because)) {
-        excluded_because <- dplyr::coalesce(excluded_because, excluded_because.x, excluded_because.y) %>%
-            dplyr::select(-nCount_RNA) %>%
-            tibble::deframe() %>%
+        excluded_because <- dplyr::coalesce(excluded_because, excluded_because.x, excluded_because.y) |>
+            dplyr::select(-nCount_RNA) |>
+            tibble::deframe() |>
             identity()
     } else {
-        excluded_because <- select(excluded_because, -nCount_RNA) %>%
-            tibble::deframe() %>%
+        excluded_because <- select(excluded_because, -nCount_RNA) |>
+            tibble::deframe() |>
             identity()
     }
 

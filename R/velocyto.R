@@ -35,9 +35,9 @@ velocyto_assay <- function(seu, loom_path, fit.quantile = 0.05, check_loom = FAL
   ## grab cell colors ------------------------------------------------------------------------
 
   p <- DimPlot(sub_seu, ...)
-  col_vec <- unique(ggplot2::ggplot_build(p)$data[[1]]) %>%
-    dplyr::arrange(group) %>%
-    dplyr::pull(colour) %>%
+  col_vec <- unique(ggplot2::ggplot_build(p)$data[[1]]) |>
+    dplyr::arrange(group) |>
+    dplyr::pull(colour) |>
     unique()
 
   ## format cell colors------------------------------------------------------------------------

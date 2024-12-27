@@ -55,9 +55,9 @@ run_seurat_de <- function(seu, cluster1, cluster2, resolution, diffex_scheme = "
             de_cols <- c("enstxp", "ensgene", "symbol", "p_val", "avg_log2FC", "pct.1", "pct.2", "p_val_adj")
 
             de <-
-                de %>%
-                tibble::rownames_to_column("enstxp") %>%
-                dplyr::left_join(annotables::grch38_tx2gene, by = "enstxp") %>%
+                de |>
+                tibble::rownames_to_column("enstxp") |>
+                dplyr::left_join(annotables::grch38_tx2gene, by = "enstxp") |>
                 dplyr::left_join(annotables::grch38, by = "ensgene")
 
             if ("avg_logFC" %in% colnames(de)) {
@@ -69,8 +69,8 @@ run_seurat_de <- function(seu, cluster1, cluster2, resolution, diffex_scheme = "
             de_cols <- c("ensgene", "symbol", "p_val", "avg_log2FC", "pct.1", "pct.2", "p_val_adj")
 
             de <-
-                de %>%
-                tibble::rownames_to_column("symbol") %>%
+                de |>
+                tibble::rownames_to_column("symbol") |>
                 dplyr::left_join(annotables::grch38, by = "symbol")
 
             if ("avg_logFC" %in% colnames(de)) {
@@ -103,11 +103,11 @@ run_enrichmentbrowser <- function(seu, cluster_list, de_results, enrichment_meth
     cluster1_cells <- cluster_list$cluster1
     cluster2_cells <- cluster_list$cluster2
 
-    test_diffex_results <- de_results$t %>%
-        dplyr::mutate(FC = log2(exp(avg_log2FC))) %>%
-        dplyr::mutate(ADJ.PVAL = p_val_adj) %>%
-        dplyr::distinct(symbol, .keep_all = TRUE) %>%
-        tibble::column_to_rownames("symbol") %>%
+    test_diffex_results <- de_results$t |>
+        dplyr::mutate(FC = log2(exp(avg_log2FC))) |>
+        dplyr::mutate(ADJ.PVAL = p_val_adj) |>
+        dplyr::distinct(symbol, .keep_all = TRUE) |>
+        tibble::column_to_rownames("symbol") |>
         identity()
 
     # subset by supplied cell ids
@@ -239,7 +239,7 @@ seuratApp <- function(preset_project, appTitle = "seuratTools", organism_type = 
     header <- shinydashboard::dashboardHeader(title = appTitle)
     sidebar <- shinydashboard::dashboardSidebar(
         uiOutput("projInput"),
-        actionButton("loadProject", "Load Selected Project") %>%
+        actionButton("loadProject", "Load Selected Project") |>
             default_helper(type = "markdown", content = "overview"),
         textOutput("appTitle"),
         bookmarkButton(),
@@ -298,7 +298,7 @@ seuratApp <- function(preset_project, appTitle = "seuratTools", organism_type = 
         shinydashboard::tabItems(
             shinydashboard::tabItem(
                 tabName = "comparePlots",
-                h2("Compare Plots") %>%
+                h2("Compare Plots") |>
                     default_helper(type = "markdown", content = "comparePlots"),
                 plotDimRedui("plotdimred1"),
                 plotDimRedui("plotdimred2"),
@@ -341,7 +341,7 @@ seuratApp <- function(preset_project, appTitle = "seuratTools", organism_type = 
             ),
             shinydashboard::tabItem(
                 tabName = "subsetSeurat",
-                h2("Subset Seurat Input") %>%
+                h2("Subset Seurat Input") |>
                     default_helper(type = "markdown", content = "subsetSeurat"),
                 plotDimRedui("subset"),
                 seuratToolsBox(
@@ -382,7 +382,7 @@ seuratApp <- function(preset_project, appTitle = "seuratTools", organism_type = 
             ),
             shinydashboard::tabItem(
                 tabName = "diffex",
-                h2("Differential Expression") %>%
+                h2("Differential Expression") |>
                     default_helper(type = "markdown", content = "diffex"),
                 plotDimRedui("diffex"),
                 diffexui("diffex")
@@ -420,7 +420,7 @@ seuratApp <- function(preset_project, appTitle = "seuratTools", organism_type = 
                         ),
                         textInput("geneSetName", "Name for Gene Set"),
                         width = 12
-                    ) %>%
+                    ) |>
                         default_helper(type = "markdown", content = "regressFeatures")
                 )
             ), shinydashboard::tabItem(
@@ -480,13 +480,13 @@ seuratApp <- function(preset_project, appTitle = "seuratTools", organism_type = 
 
         projList <- reactivePoll(4000, session, checkFunc = function() {
             if (file.exists(db_path)) {
-                DBI::dbReadTable(con(), "projects_tbl") %>%
+                DBI::dbReadTable(con(), "projects_tbl") |>
                     tibble::deframe()
             } else {
                 ""
             }
         }, valueFunc = function() {
-            DBI::dbReadTable(con(), "projects_tbl") %>%
+            DBI::dbReadTable(con(), "projects_tbl") |>
                 tibble::deframe()
         })
 

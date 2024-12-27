@@ -71,7 +71,7 @@ plotViolinui <- function(id) {
             downloadButton(ns("downloadPlot")),
             plotly::plotlyOutput(ns("vplot"), height = 750),
             width = 11
-        ) %>%
+        ) |>
             default_helper(type = "markdown", content = "violinPlot", size = "l")
     )
 }
@@ -147,11 +147,11 @@ plotViolin <- function(input, output, session, seu, featureType, organism_type) 
         req(input$vlnGroup)
         exclude_trace_number <- length(unique(seu()[[]][[input$vlnGroup]])) * 2
 
-        vln_plot <- plotly::ggplotly(vln_plot(), height = 700) %>%
-            plotly::style(opacity = 0.5) %>%
-            plotly::style(hoverinfo = "skip", traces = c(1:exclude_trace_number)) %>%
-            plotly_settings(width = 1200) %>%
-            plotly::toWebGL() %>%
+        vln_plot <- plotly::ggplotly(vln_plot(), height = 700) |>
+            plotly::style(opacity = 0.5) |>
+            plotly::style(hoverinfo = "skip", traces = c(1:exclude_trace_number)) |>
+            plotly_settings(width = 1200) |>
+            plotly::toWebGL() |>
             identity()
     })
 }
@@ -180,7 +180,7 @@ plotHeatmapui <- function(id) {
             ),
             plotOutput(ns("heatmap"), height = 750),
             width = 12
-        ) %>%
+        ) |>
             default_helper(type = "markdown", content = "heatMap")
     )
 }
@@ -225,7 +225,7 @@ plotHeatmap <- function(input, output, session, seu, featureType, organism_type)
     output$colAnnoVarui <- renderUI({
         req(seu())
 
-        formatted_col_names <- colnames(seu()@meta.data) %>%
+        formatted_col_names <- colnames(seu()@meta.data) |>
             make_seuratTools_clean_names()
 
         selectizeInput(ns("colAnnoVar"), "Column Annotation(s)",
@@ -294,7 +294,7 @@ integrateProjui <- function(id) {
             shinyFiles::shinySaveButton(ns("saveIntegratedProject"), "Save Integrated Project", "Save project as..."),
             DT::dataTableOutput(ns("myDatatable")),
             width = 12
-        ) %>%
+        ) |>
             default_helper(type = "markdown", content = "integrateProjects")
     )
 }
@@ -318,8 +318,8 @@ integrateProj <- function(input, output, session, proj_matrices, seu, proj_dir, 
     })
 
     clean_proj_matrix <- reactive({
-        clean_proj_matrix <- proj_matrix() %>%
-            dplyr::select(-project_path) %>%
+        clean_proj_matrix <- proj_matrix() |>
+            dplyr::select(-project_path) |>
             identity()
     })
 
@@ -333,8 +333,8 @@ integrateProj <- function(input, output, session, proj_matrices, seu, proj_dir, 
     })
 
     selectedProjects <- reactive({
-        selectedProjects <- dplyr::slice(proj_matrix(), selectedRows()) %>%
-            dplyr::pull(project_path) %>%
+        selectedProjects <- dplyr::slice(proj_matrix(), selectedRows()) |>
+            dplyr::pull(project_path) |>
             identity()
     })
 
@@ -347,7 +347,7 @@ integrateProj <- function(input, output, session, proj_matrices, seu, proj_dir, 
                 shinyjs::html("integrationMessages", "")
                 message("Beginning")
                 message(selectedProjects())
-                batches <- fs::path(selectedProjects(), "output", "seurat", "unfiltered_seu.rds") %>%
+                batches <- fs::path(selectedProjects(), "output", "seurat", "unfiltered_seu.rds") |>
                     purrr::map(readRDS)
 
                 names(batches) <- names(selectedProjects())
@@ -933,9 +933,9 @@ diffex <- function(input, output, session, seu, featureType, selected_cells, tes
 
 
     Volcano <- reactive({
-        de_results()[[input$diffex_method]] %>%
-            dplyr::distinct(symbol, .keep_all = TRUE) %>%
-            tibble::column_to_rownames("symbol") %>%
+        de_results()[[input$diffex_method]] |>
+            dplyr::distinct(symbol, .keep_all = TRUE) |>
+            tibble::column_to_rownames("symbol") |>
             EnhancedVolcano::EnhancedVolcano(
                 lab = rownames(.),
                 x = "avg_log2FC",
@@ -1000,7 +1000,7 @@ findMarkersui <- function(id) {
             plotly::plotlyOutput(ns("markerplot"), height = 800),
             width = 6
         )
-    ) %>%
+    ) |>
         default_helper(type = "markdown", content = "findMarkers")
 }
 
@@ -1251,7 +1251,7 @@ allTranscripts <- function(input, output, session, seu,
         updateSelectizeInput(session, "compositionGene", choices = rownames(seu()[["gene"]]), selected = "RXRG", server = TRUE)
         updateSelectizeInput(session, "embeddingGene", choices = rownames(seu()[["gene"]]), selected = "RXRG", server = TRUE)
 
-        formatted_col_names <- colnames(seu()@meta.data) %>%
+        formatted_col_names <- colnames(seu()@meta.data) |>
             make_seuratTools_clean_names()
 
         updateSelectizeInput(session, "groupby", choices = formatted_col_names, selected = "batch", server = TRUE)
@@ -1276,11 +1276,11 @@ allTranscripts <- function(input, output, session, seu,
     })
 
     output$compositionPlot <- plotly::renderPlotly({
-        composition_plot()$plot %>%
-            plotly::ggplotly(height = 400) %>%
-            plotly_settings() %>%
-            plotly::toWebGL() %>%
-            # plotly::partial_bundle() %>%
+        composition_plot()$plot |>
+            plotly::ggplotly(height = 400) |>
+            plotly_settings() |>
+            plotly::toWebGL() |>
+            # plotly::partial_bundle() |>
             identity()
     })
 
@@ -1300,9 +1300,9 @@ allTranscripts <- function(input, output, session, seu,
     })
 
     output$transcriptPlot <- plotly::renderPlotly({
-        pList()[[input$transcriptSelect]] %>%
-            plotly::ggplotly(height = 400) %>%
-            plotly_settings() %>%
+        pList()[[input$transcriptSelect]] |>
+            plotly::ggplotly(height = 400) |>
+            plotly_settings() |>
             plotly::toWebGL()
     })
 
@@ -1353,7 +1353,7 @@ plotVelocityui <- function(id) {
       actionButton(ns("plot_velocity_expression"), "plot velocity and expression"),
       # downloadButton(ns("downloadExpressionPlot"), label = "Download Plot"),
       plotOutput(ns("velocityExpressionPlot"), height = "500px")
-    ) %>%
+    ) |>
       default_helper(type = "markdown", content = "plotVelocity")
   )
 }
@@ -1663,8 +1663,8 @@ monocle <- function(input, output, session, seu, plot_types, featureType,
         } else if (input$plottype1 == "module") {
             print(monocle_heatmap()$module_table)
             print(input$plotModule1)
-            genes <- monocle_heatmap()$module_table %>%
-                filter(module %in% input$plotModule1) %>%
+            genes <- monocle_heatmap()$module_table |>
+                filter(module %in% input$plotModule1) |>
                 dplyr::mutate(module = factor(module))
             plot_monocle_features(cds_rvs$traj, genes = genes, monocle_heatmap()$agg_mat)
         } else {
@@ -1694,8 +1694,8 @@ monocle <- function(input, output, session, seu, plot_types, featureType,
             print(monocle_heatmap()$module_table)
             print(input$plotModule2)
 
-            genes <- monocle_heatmap()$module_table %>%
-                filter(module %in% input$plotModule2) %>%
+            genes <- monocle_heatmap()$module_table |>
+                filter(module %in% input$plotModule2) |>
                 dplyr::mutate(module = factor(module))
             plot_monocle_features(cds_rvs$traj, genes = genes, monocle_heatmap()$agg_mat)
         } else {
@@ -1778,11 +1778,11 @@ monocle <- function(input, output, session, seu, plot_types, featureType,
 
     cds_pr_test_res <- reactive({
         if (req(cds_rvs$selected["diff_features"])) {
-            cds_rvs$traj@metadata$diff_features %>%
-                # subset(q_value < 0.05) %>%
-                dplyr::arrange(q_value) %>%
-                dplyr::select(-status) %>%
-                # dplyr::filter %>%
+            cds_rvs$traj@metadata$diff_features |>
+                # subset(q_value < 0.05) |>
+                dplyr::arrange(q_value) |>
+                dplyr::select(-status) |>
+                # dplyr::filter |>
                 identity()
         }
     })
@@ -1807,11 +1807,11 @@ monocle <- function(input, output, session, seu, plot_types, featureType,
             output$ptimeGenesLinePlot <- plotly::renderPlotly({
                 genes_in_pseudotime <- prep_plot_genes_in_pseudotime(cds_rvs$traj, input$genePlotQuery1, input$cdsResolution)
                 genes_in_pseudotime <-
-                    genes_in_pseudotime %>%
-                    plotly::ggplotly(height = 600) %>%
-                    plotly_settings() %>%
-                    plotly::toWebGL() %>%
-                    # plotly::partial_bundle() %>%
+                    genes_in_pseudotime |>
+                    plotly::ggplotly(height = 600) |>
+                    plotly_settings() |>
+                    plotly::toWebGL() |>
+                    # plotly::partial_bundle() |>
                     identity()
             })
 
@@ -1837,11 +1837,11 @@ monocle <- function(input, output, session, seu, plot_types, featureType,
         req(cds_rvs$traj)
         req(input$colAnnoVar)
 
-        heatmap_genes <- cds_pr_test_res() %>%
+        heatmap_genes <- cds_pr_test_res() |>
             dplyr::filter(q_value < input$qvalThreshold)
 
         monocle_module_heatmap(cds_rvs$traj, rownames(heatmap_genes), input$cdsResolution, collapse_rows = input$heatmapRows, group.by = input$colAnnoVar)
-    }) %>%
+    }) |>
         bindCache(cds_rvs$traj, input$cdsResolution, input$heatmapRows)
 
     module_choices <- reactive({
@@ -1967,7 +1967,7 @@ pathwayEnrichment <- function(input, output, session, seu) {
     observe({
       req(seu())
 
-      marker_group_bys <- names(Misc(seu())$markers) %>%
+      marker_group_bys <- names(Misc(seu())$markers) |>
         make_seuratTools_clean_names()
 
       updateSelectizeInput(session, "group_by", choices = marker_group_bys, selected = "batch", server = TRUE)
@@ -2033,7 +2033,7 @@ pathwayEnrichment <- function(input, output, session, seu) {
         req(seu())
         req(input$enriched_pathways_by_cluster_select_source)
         if (input$enriched_pathways_by_cluster_select_source == "enrichr") {
-            choices <- levels(enriched_pathways()$enrichr$by_cluster$cluster) %>%
+            choices <- levels(enriched_pathways()$enrichr$by_cluster$cluster) |>
                 intersect(., unique(enriched_pathways()$enrichr$by_cluster$cluster))
         }
         selectInput(
@@ -2049,9 +2049,9 @@ pathwayEnrichment <- function(input, output, session, seu) {
             input$enriched_pathways_by_cluster_select_source,
             input$enriched_pathways_by_cluster_select_cluster
         )
-        choices <- enriched_pathways()$enrichr$by_cluster %>%
-            dplyr::filter(cluster == input$enriched_pathways_by_cluster_select_cluster) %>%
-            dplyr::pull(db) %>%
+        choices <- enriched_pathways()$enrichr$by_cluster |>
+            dplyr::filter(cluster == input$enriched_pathways_by_cluster_select_cluster) |>
+            dplyr::pull(db) |>
             intersect(., levels(.))
         selectInput(
             ns("enriched_pathways_by_cluster_select_db"),
@@ -2324,7 +2324,7 @@ plotCoverage <- function(input, output, session, seu, plot_types, proj_dir, orga
         req(seu())
         updateSelectizeInput(session, "geneSelect", choices = rownames(seu()[["gene"]]), server = TRUE)
 
-        formatted_col_names <- colnames(seu()@meta.data) %>%
+        formatted_col_names <- colnames(seu()@meta.data) |>
             make_seuratTools_clean_names()
 
         updateSelectizeInput(session, "varSelect", choices = formatted_col_names, selected = "batch")

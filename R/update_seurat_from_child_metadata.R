@@ -25,9 +25,9 @@ update_seu_meta <- function(seu, proj_dir, numcols) {
     left_side_columns <- dplyr::select(updated_seu_meta, one_of(left_side_common))
     colnames(left_side_columns) <- gsub("\\.y$", "", colnames(left_side_columns))
 
-    updated_seu_meta <- cbind(updated_seu_meta, left_side_columns) %>%
-        dplyr::select(-one_of(right_side_common)) %>%
-        dplyr::select(-one_of(left_side_common)) %>%
+    updated_seu_meta <- cbind(updated_seu_meta, left_side_columns) |>
+        dplyr::select(-one_of(right_side_common)) |>
+        dplyr::select(-one_of(left_side_common)) |>
         dplyr::select(Sample_ID, everything())
 }
 
