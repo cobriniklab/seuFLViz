@@ -103,7 +103,7 @@
     <loc>/reference/changeEmbedParamsui.html</loc>
   </url>
   <url>
-    <loc>/reference/chevreulBox.html</loc>
+    <loc>/reference/chevreulSeuratBox.html</loc>
   </url>
   <url>
     <loc>/reference/clustering_workflow.html</loc>
@@ -268,7 +268,7 @@
     <loc>/reference/make_bigwig_db.html</loc>
   </url>
   <url>
-    <loc>/reference/make_chevreul_clean_names.html</loc>
+    <loc>/reference/make_chevreulSeurat_clean_names.html</loc>
   </url>
   <url>
     <loc>/reference/mem_str.html</loc>
@@ -553,7 +553,7 @@
     <loc>/reference/unite_metadata.html</loc>
   </url>
   <url>
-    <loc>/reference/update_chevreul_object.html</loc>
+    <loc>/reference/update_chevreulSeurat_object.html</loc>
   </url>
   <url>
     <loc>/reference/update_exp_meta.html</loc>

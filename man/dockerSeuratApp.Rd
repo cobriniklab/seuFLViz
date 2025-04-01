@@ -10,7 +10,7 @@ dockerSeuratApp(
   appTitle = NULL,
   organism_type = "human",
   futureMb = 13000,
-  bigwig_db = "~/.cache/chevreul/bw-files.db"
+  bigwig_db = "~/.cache/chevreulSeurat/bw-files.db"
 )
 }
 \arguments{
@@ -24,8 +24,7 @@ dockerSeuratApp(
 Create a seurat app on a shinyproxy docker instance
 }
 \examples{
-
-/dontrun{
+\dontrun{
 dockerSeuratApp(panc8)
 }
 

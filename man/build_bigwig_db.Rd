@@ -4,11 +4,11 @@
 \alias{build_bigwig_db}
 \title{Create a database of bigwigfiles}
 \usage{
-build_bigwig_db(bam_files, bigwig_db = "~/.cache/chevreul/bw-files.db")
+build_bigwig_db(bam_files, bigwig_db = "~/.cache/chevreulSeurat/bw-files.db")
 }
 \arguments{
 \item{bigwig_db}{}
 }
 \description{
-create a sqlite database of bigwig files matching cell ids in seurat objects
+Create a sqlite database of bigwig files matching cell ids in seurat objects
 }

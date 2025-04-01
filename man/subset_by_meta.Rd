@@ -2,13 +2,15 @@
 % Please edit documentation in R/project_management.R
 \name{subset_by_meta}
 \alias{subset_by_meta}
-\title{subset by new metadata}
+\title{Subset by new metadata}
 \usage{
 subset_by_meta(meta_path, seu)
 }
 \arguments{
-\item{seu}{}
+\item{meta_path}{Path to new metadata}
+
+\item{seu}{A seurat obejct}
 }
 \description{
-subset by new metadata
+Subset the seurat object using new metadata
 }

@@ -7,11 +7,16 @@
 get_transcripts_from_seu(seu, gene, organism = "human")
 }
 \arguments{
-\item{organism}{}
+\item{seu}{A seurat object}
+
+\item{gene}{Gene of intrest}
+
+\item{organism}{Organism}
 }
 \description{
-Get Transcripts in Seurat Object
+Get transcript ids in Seurat objects for one or more gene of interest
 }
 \examples{
 RXRG_transcripts <- get_transcripts_from_seu(human_gene_transcript_seu, "RXRG")
+
 }

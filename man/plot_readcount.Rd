@@ -28,7 +28,7 @@ plot_readcount(
 Draw a box plot for read count data of a metadata variable
 }
 \examples{
-#interactive plotly
+# interactive plotly
 plot_readcount(human_gene_transcript_seu, return_plotly = TRUE)
 # static plot
 plot_readcount(human_gene_transcript_seu, return_plotly = FALSE)

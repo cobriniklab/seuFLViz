@@ -7,8 +7,6 @@
 plotViolin(input, output, session, seu, featureType, organism_type)
 }
 \arguments{
-\item{input}{one or more feature to be plots}
-
 \item{seu}{Seurat object}
 
 \item{featureType}{Gene or Transcript}
@@ -16,5 +14,5 @@ plotViolin(input, output, session, seu, featureType, organism_type)
 \item{organism_type}{Organism}
 }
 \description{
-Plot Violin Server
+Plots a Violin plot of a single data (gene expression, metrics, etc.) in the server Seurat app.
 }

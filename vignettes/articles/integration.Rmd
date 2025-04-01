@@ -23,12 +23,12 @@ format_table <- function(mydf) {
 }
 ```
 
-When joint analysis of two or more single cell sequencing data is to be performed, we need to first integrate the individual datasets. In Chevreul, a single function `integration_workflow` is capable of integrating multiple Seurat objects provided as a list.
+When joint analysis of two or more single cell sequencing data is to be performed, we need to first integrate the individual datasets. In chevreulSeurat, a single function `integration_workflow` is capable of integrating multiple Seurat objects provided as a list.
 
 First step in this process is to load all the packages required
 
 ```{r setup, message = FALSE}
-library(chevreul)
+library(chevreulSeurat)
 library(Seurat)
 library(tidyverse)
 library(ggraph)
@@ -50,7 +50,7 @@ integrated_seu <- integration_workflow(batches)
 ```
 
 ```{r, echo=FALSE}
-integrated_seu <- readRDS("~/rpkgs/chevreul/seu_integrated.rds")
+integrated_seu <- readRDS("~/rpkgs/chevreulSeurat/seu_integrated.rds")
 ```
 
 

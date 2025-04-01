@@ -18,6 +18,8 @@ clustering_workflow(
 
 \item{resolution}{resolution(s) to use for clustering cells}
 
+\item{organism}{Organism}
+
 \item{...}{}
 
 \item{feature_seus}{list of seurat objects named according to feature of interest ("gene" or "transcript")}

@@ -7,6 +7,8 @@
 convert_human_seu_to_mouse(seu, ...)
 }
 \arguments{
+\item{seu}{Human Seurat object}
+
 \item{...}{to be passed to \code{convert_symbols_by_species}}
 }
 \description{

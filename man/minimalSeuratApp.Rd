@@ -10,7 +10,7 @@ minimalSeuratApp(
   appTitle = NULL,
   organism_type = "human",
   futureMb = 13000,
-  bigwig_db = "~/.cache/chevreul/bw-files.db"
+  bigwig_db = "~/.cache/chevreulSeurat/bw-files.db"
 )
 }
 \arguments{
@@ -18,14 +18,15 @@ minimalSeuratApp(
 
 \item{loom_path}{path to a loom file}
 
+\item{organism_type}{Organism}
+
 \item{futureMb}{}
 }
 \description{
 Create a minimal seurat app
 }
 \examples{
-
-/dontrun{
+\dontrun{
 minimalSeuratApp(panc8)
 }
 

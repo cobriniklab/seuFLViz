@@ -6,9 +6,9 @@
 \usage{
 seuratApp(
   preset_project,
-  appTitle = "chevreul",
+  appTitle = "chevreulSeurat",
   organism_type = "human",
-  db_path = "~/.cache/chevreul/single-cell-projects.db",
+  db_path = "~/.cache/chevreulSeurat/single-cell-projects.db",
   futureMb = 13000
 )
 }

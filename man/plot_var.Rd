@@ -42,7 +42,7 @@ reduction technique used
 
 
 # static mode
-plot_var(human_gene_transcript_seu, group = "batch", return_plotly  = FALSE)
+plot_var(human_gene_transcript_seu, group = "batch", return_plotly = FALSE)
 
 # interactive plotly plot
 plotly_plot <- plot_var(human_gene_transcript_seu, group = "batch")

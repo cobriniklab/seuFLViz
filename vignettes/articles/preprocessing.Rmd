@@ -24,10 +24,10 @@ format_table <- function(mydf) {
 }
 ```
 
-First step is to load Chevreul package and all other packages required 
+First step is to load chevreulSeurat package and all other packages required 
 
 ```{r setup }
-library(chevreul)
+library(chevreulSeurat)
 library(Seurat)
 library(tidyverse)
 library(ggraph)
@@ -35,7 +35,7 @@ library(ggraph)
 
 ## TLDR
 
-chevreul provides a single command to:
+chevreulSeurat provides a single command to:
 
 -   construct a Seurat object
 
@@ -102,7 +102,7 @@ myseu
 
 ## Preprocess the seurat object
 
-Chevreul includes a handy function to preprocess the data that handles normalization and scaling required for downstream analysis. Preprocessing is performed using existing Seurat functions. If needed, parameters can be specified by the user.
+chevreulSeurat includes a handy function to preprocess the data that handles normalization and scaling required for downstream analysis. Preprocessing is performed using existing Seurat functions. If needed, parameters can be specified by the user.
 
 ```{r}
 myseu <- seurat_preprocess(myseu)
@@ -133,7 +133,7 @@ pre_process_seu <- ScaleData(preprocess_seu)
 
 ## Perform dimension reduction
 
-Chevreul also implements a standardized dimension reduction step to select variable features at a user-specified threshold and perform PCA, tSNE, and UMAP. The default assay the dimension reduction is being run on is "gene".
+chevreulSeurat also implements a standardized dimension reduction step to select variable features at a user-specified threshold and perform PCA, tSNE, and UMAP. The default assay the dimension reduction is being run on is "gene".
 
 ```{r, results=FALSE}
 myseu <- seurat_reduce_dimensions(myseu, assay = "RNA")

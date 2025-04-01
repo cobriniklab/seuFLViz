@@ -7,7 +7,9 @@
 update_human_gene_symbols(seu, assay = "gene")
 }
 \arguments{
-\item{seu}{}
+\item{seu}{A Seurat object}
+
+\item{assay}{Assay to use, Default = "gene"}
 }
 \description{
 Update human gene symbols in seurat object

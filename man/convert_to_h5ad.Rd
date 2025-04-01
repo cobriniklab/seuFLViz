@@ -7,7 +7,9 @@
 convert_to_h5ad(seu, file_path)
 }
 \arguments{
-\item{file_path}{}
+\item{seu}{A seurat object}
+
+\item{file_path}{Path to file}
 }
 \description{
 convert a seurat object to an on-disk anndata object

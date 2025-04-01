@@ -24,10 +24,10 @@ format_table <- function(mydf) {
 }
 ```
 
-First step is to load Chevreul and all other packages required 
+First step is to load chevreulSeurat and all other packages required 
 
 ```{r setup, }
-library(chevreul)
+library(chevreulSeurat)
 library(Seurat)
 library(tidyverse)
 library(ggraph)

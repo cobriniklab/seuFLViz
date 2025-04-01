@@ -1,12 +1,12 @@
-name: seuratTools
-title: seuratTools
+name: chevreulSeuratSeurat
+title: chevreulSeuratSeurat
 username:
 account: kevin-stachelek
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3667409
 bundleId: 4246731
-url: https://kevin-stachelek.shinyapps.io/seuratTools/
+url: https://kevin-stachelek.shinyapps.io/chevreulSeuratSeurat/
 when: 1613772445.34613
 asMultiple: FALSE
 asStatic: FALSE

@@ -11,7 +11,9 @@ record_experiment_data(
 )
 }
 \arguments{
-\item{add_all_meta_data}{}
+\item{object}{A seurat objet}
+
+\item{organism}{}
 }
 \description{
 Record Experiment Metadata

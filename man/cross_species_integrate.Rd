@@ -12,7 +12,9 @@ cross_species_integrate(
 )
 }
 \arguments{
-\item{human_seu_list}{}
+\item{mouse_seu_list}{Mouse Seurat object}
+
+\item{human_seu_list}{Human Seurat object}
 }
 \description{
 Integrate Seurat Objects from Mouse to Human

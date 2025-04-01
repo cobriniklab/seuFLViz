@@ -12,7 +12,7 @@ plotCoverage(
   plot_types,
   proj_dir,
   organism_type = "human",
-  bigwig_db = "~/.cache/chevreul/bw-files.db"
+  bigwig_db = "~/.cache/chevreulSeurat/bw-files.db"
 )
 }
 \arguments{

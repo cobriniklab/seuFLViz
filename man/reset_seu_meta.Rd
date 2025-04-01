@@ -7,7 +7,9 @@
 reset_seu_meta(seu, new_meta)
 }
 \arguments{
-\item{new_meta}{}
+\item{seu}{A seurat object}
+
+\item{new_meta}{new object}
 }
 \description{
 Reset Seurat Metadata

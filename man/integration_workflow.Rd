@@ -31,7 +31,7 @@ Integrate multiple seurat objects and save to file
 }
 \examples{
 batches <- panc8 \%>\%
-  Seurat::SplitObject(split.by = "tech")
+    Seurat::SplitObject(split.by = "tech")
 
 integrated_seu <- integration_workflow(batches)
 }

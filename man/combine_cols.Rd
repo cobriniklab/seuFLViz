@@ -7,8 +7,12 @@
 combine_cols(seu, cols, new_col)
 }
 \arguments{
-\item{new_col}{}
+\item{seu}{A Seurat object}
+
+\item{cols}{Columns}
+
+\item{new_col}{New columns}
 }
 \description{
-Reformat Seurat Object Metadata
+Reformat Seurat Object Metadata by Coalesced Columns
 }

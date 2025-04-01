@@ -2,13 +2,15 @@
 % Please edit documentation in R/utils.R
 \name{format_new_metadata}
 \alias{format_new_metadata}
-\title{Title}
+\title{Add Seurat Object Metadata}
 \usage{
 format_new_metadata(seu, datapath)
 }
 \arguments{
-\item{datapath}{}
+\item{seu}{A seurat object}
+
+\item{datapath}{Path to file containing metadata}
 }
 \description{
-Title
+Adds data to the seurat object to produce a seurat object with metadata added.
 }

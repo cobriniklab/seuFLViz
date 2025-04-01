@@ -7,6 +7,10 @@
 update_seu_meta(seu, proj_dir, numcols)
 }
 \arguments{
+\item{seu}{A seurat object}
+
+\item{proj_dir}{Project directory}
+
 \item{numcols}{}
 }
 \description{

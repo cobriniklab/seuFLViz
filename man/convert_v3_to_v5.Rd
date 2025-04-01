@@ -7,10 +7,10 @@
 convert_v3_to_v5(seu_v3)
 }
 \arguments{
-\item{seu_v3}{a seurat object}
+\item{seu_v3}{a version 3 seurat object}
 }
 \description{
-Convert seurat object to seurat V5 format
+Convert seurat object from v3 to v5 format
 }
 \examples{
 convert_v3_to_v5(human_gene_transcript_seu)

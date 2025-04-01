@@ -82,7 +82,7 @@ RUN R -e 'remotes::install_github("cole-trapnell-lab/monocle3")'
 # # RUN install2.r --error --deps TRUE shinydashboard
 #
 #
-# # COPY chevreul_*.tar.gz /app.tar.gz
+# # COPY chevreulSeurat_*.tar.gz /app.tar.gz
 # # RUN remotes::install_local('/app.tar.gz')
 # # CMD R -e 'library(dockerfiler)'
 #
@@ -105,7 +105,7 @@ RUN R -e 'install.packages("tidyverse")'
 RUN R -e 'BiocManager::install("InteractiveComplexHeatmap")'
 
 COPY Rprofile.site /usr/local/lib/R/etc/
-RUN R -e 'remotes::install_github("cobriniklab/chevreul")'
+RUN R -e 'remotes::install_github("cobriniklab/chevreulSeurat")'
 # EXPOSE 3838
 
 # # install shinyproxy package with demo shiny application

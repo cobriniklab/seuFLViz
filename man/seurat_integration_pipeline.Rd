@@ -40,7 +40,7 @@ Run batch correction, followed by:
 \examples{
 
 batches <- panc8 \%>\%
-  Seurat::SplitObject(split.by = "tech")
+    Seurat::SplitObject(split.by = "tech")
 
 integrated_seu <- seurat_integration_pipeline(batches)
 }
