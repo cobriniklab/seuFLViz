@@ -17,3 +17,4 @@ convert_cyclone_pairs_to_symbol.R
 *.pdf
 kept_genes_0.5.csv'
 *.csv
+.Rprofile
