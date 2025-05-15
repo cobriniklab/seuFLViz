@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# seuratTools
+# seuFLViz
 
 This package includes a set of Shiny apps for exploring single cell RNA
 datasets processed with
@@ -23,7 +23,7 @@ There are also convenient functions for:
   and
   <a href="https://scvelo.readthedocs.io/" target="_blank" rel="noopener noreferrer">scvelo</a>
 
-> \[!WARNING\] seuratToolsSeurat was designed for full-length smart-seq
+> \[!WARNING\] seuFLVizSeurat was designed for full-length smart-seq
 > based single cell data. Default settings may not be appropriate for
 > droplet (10x) data, though most can be adjusted. Keep in mind [best
 > practices](https://satijalab.org/seurat/articles/pbmc3k_tutorial)
@@ -31,33 +31,33 @@ There are also convenient functions for:
 
 ## Installation
 
-You can install the released version of seuratTools from
-<a href="https://github.com/cobriniklab/seuratTools" target="_blank" rel="noopener noreferrer">github</a>
+You can install the released version of seuFLViz from
+<a href="https://github.com/cobriniklab/seuFLViz" target="_blank" rel="noopener noreferrer">github</a>
 with:
 
 ### Install locally and run in three steps:
 
-You can install seuratTools locally using the following steps:
+You can install seuFLViz locally using the following steps:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("cobriniklab/seuratTools")
-seuratTools::create_project_db()
+devtools::install_github("cobriniklab/seuFLViz")
+seuFLViz::create_project_db()
 ```
 
 You can also customize the location of the app using these steps:
 
 ``` r
-devtools::install_github("cobriniklab/seuratTools")
-seuratTools::create_project_db(destdir = "/your/path/to/app")
+devtools::install_github("cobriniklab/seuFLViz")
+seuFLViz::create_project_db(destdir = "/your/path/to/app")
 ```
 
 ## Getting Started
 
-First, load seuratTools and all other packages required
+First, load seuFLViz and all other packages required
 
 ``` r
-library(seuratTools)
+library(seuFLViz)
 library(Seurat)
 library(tidyverse)
 library(ggraph)
@@ -65,7 +65,7 @@ library(ggraph)
 
 ## TLDR
 
-seuratTools provides a single command to:
+seuFLViz provides a single command to:
 
 - construct a Seurat object
 
@@ -113,7 +113,7 @@ myseu <- CreateSeuratObject(human_count, assay = "gene", meta.data = human_meta)
 
 ## Preprocess the seurat object
 
-seuratTools includes a handy function to preprocess the data that handles
+seuFLViz includes a handy function to preprocess the data that handles
 normalization and scaling required for downstream analysis. If needed,
 parameters can be specified by the user.
 
@@ -126,7 +126,7 @@ identifies highly variable features and scales the data
 
 ## Perform dimension reduction
 
-seuratTools also implements a standardized dimension reduction step to
+seuFLViz also implements a standardized dimension reduction step to
 select variable features at a user-specified threshold and perform PCA,
 tSNE, and UMAP. The default assay the dimension reduction is being run
 on is “gene”.
@@ -150,7 +150,7 @@ two different sub-functions
 
 ## Split included dataset based on collection technology
 
-seuratTools includes a function, `SplitObject`, which is capable of
+seuFLViz includes a function, `SplitObject`, which is capable of
 splitting the dataset into subsets based on a single attribute indicated
 by the split.by argument
 

@@ -1,3 +1,3 @@
 test_that("clustering of object works", {
-    expect_equal(seuratTools::clustering_workflow(), 4)
+    expect_equal(seuFLViz::clustering_workflow(), 4)
 })

@@ -24,10 +24,10 @@ format_table <- function(mydf) {
 }
 ```
 
-First step is to load seuratTools package and all other packages required 
+First step is to load seuFLViz package and all other packages required 
 
 ```{r setup }
-library(seuratTools)
+library(seuFLViz)
 library(Seurat)
 library(tidyverse)
 library(ggraph)
@@ -35,7 +35,7 @@ library(ggraph)
 
 ## TLDR
 
-seuratTools provides a single command to:
+seuFLViz provides a single command to:
 
 -   construct Seurat objects
 
@@ -101,7 +101,7 @@ myseu
 
 ## Preprocess the seurat object
 
-seuratTools includes a handy function to preprocess the data that handles normalization and scaling required for downstream analysis. Preprocessing is performed using existing Seurat functions. If needed, parameters can be specified by the user.
+seuFLViz includes a handy function to preprocess the data that handles normalization and scaling required for downstream analysis. Preprocessing is performed using existing Seurat functions. If needed, parameters can be specified by the user.
 
 ```{r}
 myseu <- seurat_preprocess(myseu)
@@ -132,7 +132,7 @@ pre_process_seu <- ScaleData(preprocess_seu)
 
 ## Perform dimension reduction
 
-seuratTools also implements a standardized dimension reduction step to select variable features at a user-specified threshold and perform PCA, tSNE, and UMAP. The default assay the dimension reduction is being run on is "gene".
+seuFLViz also implements a standardized dimension reduction step to select variable features at a user-specified threshold and perform PCA, tSNE, and UMAP. The default assay the dimension reduction is being run on is "gene".
 
 ```{r, results=FALSE}
 myseu <- seurat_reduce_dimensions(myseu, assay = "RNA")

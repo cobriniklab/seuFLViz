@@ -1,4 +1,4 @@
 library(testthat)
-library(seuratTools)
+library(seuFLViz)
 
-test_check("seuratTools")
+test_check("seuFLViz")

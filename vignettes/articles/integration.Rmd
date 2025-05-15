@@ -23,12 +23,12 @@ format_table <- function(mydf) {
 }
 ```
 
-When joint analysis of two or more single cell sequencing data is to be performed, we need to first integrate the individual datasets. In seuratTools, a single function `integration_workflow` is capable of integrating multiple Seurat objects provided as a list.
+When joint analysis of two or more single cell sequencing data is to be performed, we need to first integrate the individual datasets. In seuFLViz, a single function `integration_workflow` is capable of integrating multiple Seurat objects provided as a list.
 
 First step in this process is to load all the packages required
 
 ```{r setup, message = FALSE}
-library(seuratTools)
+library(seuFLViz)
 library(Seurat)
 library(tidyverse)
 library(ggraph)

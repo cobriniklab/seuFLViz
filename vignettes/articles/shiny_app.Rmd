@@ -17,7 +17,7 @@ library(kableExtra)
 ```
 
 
-seuratTools allows exploratory data analysis of a single cell dataset processed using `Seurat`. A demo using a human gene transcript dataset from Shayler et al. (link) is available <a href="https://docker.saban.chla.usc.edu/cobrinik/app/seuratApp/" target="_blank" rel="noopener noreferrer">here</a>
+seuFLViz allows exploratory data analysis of a single cell dataset processed using `Seurat`. A demo using a human gene transcript dataset from Shayler et al. (link) is available <a href="https://docker.saban.chla.usc.edu/cobrinik/app/seuratApp/" target="_blank" rel="noopener noreferrer">here</a>
 
 Here we'll provide a brief tour of this app organized by section with app functions organized as tabs along the sidebar upon startup.
 
@@ -31,7 +31,7 @@ Metadata addition can be executed by uploading a csv with row names matching cel
 ### Plot Data
 
 #### Dimensional reduction plots 
-seuratTools provides visualization of embeddings in PCA, tSNE, and UMAP for scRNAseq data summarized at the gene and transcript level. 
+seuFLViz provides visualization of embeddings in PCA, tSNE, and UMAP for scRNAseq data summarized at the gene and transcript level. 
 Plots can be customized to display cell metadata and the results of community detection clustering by Louvain or Leiden algorithms as implemented in Seurat. 
 In addition, gene and transcript feature expression can be overlaid on embedding plots both at the gene and transcript level. 
 
@@ -89,9 +89,9 @@ The three user input parameters are:
 
 ### Differential expression
 
-seuratTools provides different methods of differential expression analysis that 
+seuFLViz provides different methods of differential expression analysis that 
 users can choose from to determine differential expression of gene. DE methods 
-included in seuratTools are t-test, Wilcoxon rank-sum test, Likelihood ratio test, and MAST
+included in seuFLViz are t-test, Wilcoxon rank-sum test, Likelihood ratio test, and MAST
 
 Running DE testing results in a data frame containing the following information:
 *  p_val : Unadjusted p-value 
@@ -124,7 +124,7 @@ Marker features based on louvain/leiden cluster identities or cell metadata can 
 
 It is often useful to subset a single cell data set based on cell metadata whether experimentally determined (age, collection method, etc.) or derived from analysis (quality control metrics, annotated cell type)
 
-seuratTools makes it simple to subset a dataset consisting of a single batch or batch-integrated dataset. Subsetting can be accomplished either in a graphical setting by lasso-selection from a dimensionally reduced plot or by by specification of a formatted .csv file. 
+seuFLViz makes it simple to subset a dataset consisting of a single batch or batch-integrated dataset. Subsetting can be accomplished either in a graphical setting by lasso-selection from a dimensionally reduced plot or by by specification of a formatted .csv file. 
 
 Subsetting of single or batch integrated data will trigger renewal of all relevant preprocessing steps including dimensional reduction, clustering, marker gene, and pathway enrichment as well as integration based on a 'batch' variable
 
@@ -162,7 +162,7 @@ Heat maps and scatter plots are available at gene and module levels.
 To correct for expression variation in analysis due to phenomena unrelated to focus of the study,
 rather than excluding count values attributable to such process, we can adjust the expression of all remaining genes or transcripts in each cell based on the sum score of relevant genes, to regress out cell-cycle effects, for [example](https://satijalab.org/seurat/v3.0/cell_cycle_vignette.html)
 
-Such regression can be performed for any arbitrary gene set. Some preset gene lists are included in `seuratTools` including cell-cycle, mitochondrial, and apoptosis related gene sets.
+Such regression can be performed for any arbitrary gene set. Some preset gene lists are included in `seuFLViz` including cell-cycle, mitochondrial, and apoptosis related gene sets.
 
 ![](images/Screenshot_2023-08-25_at_1.40.35_PM.png){width=70%}
 

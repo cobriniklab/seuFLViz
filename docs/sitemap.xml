@@ -1,630 +1,630 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/404.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/404.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/LICENSE-text.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/LICENSE.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/articles/articles/GettingStarted.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/articles/articles/GettingStarted.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/articles/articles/integration.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/articles/articles/integration.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/articles/articles/pipeline.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/articles/articles/pipeline.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/articles/articles/preprocessing.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/articles/articles/preprocessing.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/articles/articles/shiny_app.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/articles/articles/shiny_app.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/articles/articles/visualization.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/articles/articles/visualization.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/articles/index.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/articles/integration.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/articles/integration.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/articles/preprocessing.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/articles/preprocessing.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/articles/shiny_app.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/articles/shiny_app.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/articles/visualization.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/articles/visualization.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/authors.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/authors.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/index.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/index.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/news/index.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/news/index.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/Monocle2_diffex.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/Monocle2_diffex.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/SetDefaultAssay.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/SetDefaultAssay.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/add_census_slot.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/add_census_slot.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/add_percent_mito.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/add_percent_mito.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/add_read_count_col.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/add_read_count_col.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/allTranscripts.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/allTranscripts.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/allTranscriptsui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/allTranscriptsui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/annotate_cell_cycle.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/annotate_cell_cycle.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/annotate_excluded.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/annotate_excluded.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/append_to_project_db.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/append_to_project_db.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/arrange_ptime_heatmaps.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/arrange_ptime_heatmaps.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/assign_clusters_to_cds.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/assign_clusters_to_cds.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/build_bigwig_db.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/build_bigwig_db.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/by_row_corr_between_pt_heatmaps.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/by_row_corr_between_pt_heatmaps.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/calc_cor_across_heatmaps.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/calc_cor_across_heatmaps.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/calc_pseudotime_heatmap.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/calc_pseudotime_heatmap.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/ccScore.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/ccScore.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/ccScoreui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/ccScoreui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/cells_selected.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/cells_selected.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/celltype_markers.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/celltype_markers.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/changeEmbedParams.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/changeEmbedParams.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/changeEmbedParamsui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/changeEmbedParamsui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/chevreulBox.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/chevreulBox.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/clustering_workflow.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/clustering_workflow.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/combine_cols.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/combine_cols.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/combine_looms.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/combine_looms.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/convert_human_seu_to_mouse.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/convert_human_seu_to_mouse.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/convert_monoclev2_to_seuv3.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/convert_monoclev2_to_seuv3.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/convert_mouse_seu_to_human.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/convert_mouse_seu_to_human.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/convert_seu_list_to_multimodal.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/convert_seu_list_to_multimodal.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/convert_seu_to_cds.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/convert_seu_to_cds.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/convert_seurat_to_sce.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/convert_seurat_to_sce.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/convert_seuv3_to_monoclev2.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/convert_seuv3_to_monoclev2.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/convert_symbols_by_species.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/convert_symbols_by_species.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/convert_to_h5ad.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/convert_to_h5ad.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/convert_v3_to_v5.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/convert_v3_to_v5.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/create_proj_matrix.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/create_proj_matrix.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/create_project_db.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/create_project_db.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/cross_check_heatmaps.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/cross_check_heatmaps.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/cross_plot_vars.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/cross_plot_vars.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/cross_species_integrate.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/cross_species_integrate.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/default_helper.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/default_helper.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/diffex.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/diffex.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/diffexui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/diffexui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/dockerSeuratApp.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/dockerSeuratApp.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/dot-send_enrichr_query.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/dot-send_enrichr_query.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/dropdownButton.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/dropdownButton.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/enframe_markers.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/enframe_markers.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/filter_low_rc_cells.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/filter_low_rc_cells.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/filter_merged_seu.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/filter_merged_seu.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/filter_merged_seus.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/filter_merged_seus.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/filter_rows_to_top.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/filter_rows_to_top.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/findMarkers.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/findMarkers.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/findMarkersui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/findMarkersui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/find_all_markers.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/find_all_markers.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/flip_pseudotime.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/flip_pseudotime.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/format_new_metadata.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/format_new_metadata.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/format_pathway_table.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/format_pathway_table.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/gene_test_plot.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/gene_test_plot.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/genes_to_transcripts.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/genes_to_transcripts.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/getEnrichedPathways.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/getEnrichedPathways.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/get_meta.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/get_meta.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/get_transcripts_from_seu.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/get_transcripts_from_seu.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/global_cellalign.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/global_cellalign.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/harmony_integrate.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/harmony_integrate.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/human_to_mouse_homologs.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/human_to_mouse_homologs.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/index.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/integrateProj.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/integrateProj.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/integrateProjui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/integrateProjui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/integration_workflow.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/integration_workflow.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/label_transfer.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/label_transfer.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/learn_graph_by_resolution.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/learn_graph_by_resolution.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/list_plot_types.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/list_plot_types.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/load_bigwigs.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/load_bigwigs.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/load_counts_by_tximport.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/load_counts_by_tximport.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/load_meta.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/load_meta.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/load_seurat_from_proj.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/load_seurat_from_proj.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/load_seurat_path.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/load_seurat_path.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/local_cellalign.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/local_cellalign.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/make_bigwig_db.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/make_bigwig_db.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/make_chevreul_clean_names.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/make_chevreul_clean_names.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/make_seuratTools_clean_names.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/make_seuFLViz_clean_names.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/mem_str.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/mem_str.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/merge_loom.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/merge_loom.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/merge_small_seus.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/merge_small_seus.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/metadata_from_batch.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/metadata_from_batch.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/minimalSeuratApp.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/minimalSeuratApp.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/monocle.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/monocle.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/monocle_module_heatmap.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/monocle_module_heatmap.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/monocleui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/monocleui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/nil.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/nil.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/pad_sample_files.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/pad_sample_files.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/pathwayEnrichment.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/pathwayEnrichment.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/pathwayEnrichmentui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/pathwayEnrichmentui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/pipe.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/pipe.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plotClustree.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plotClustree.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plotClustree_UI.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plotClustree_UI.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plotCoverage.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plotCoverage.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plotCoverage_UI.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plotCoverage_UI.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plotDimRed.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plotDimRed.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plotDimRedui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plotDimRedui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plotHeatmap.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plotHeatmap.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plotHeatmapui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plotHeatmapui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plotReadCount.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plotReadCount.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plotReadCountui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plotReadCountui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plotVelocity.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plotVelocity.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plotVelocityui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plotVelocityui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plotViolin.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plotViolin.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plotViolinui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plotViolinui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_all_ptimes.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_all_ptimes.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_all_transcripts.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_all_transcripts.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_cds.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_cds.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_cell_cycle_distribution.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_cell_cycle_distribution.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_cells.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_cells.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_feature.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_feature.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_feature_in_ref_query_ptime.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_feature_in_ref_query_ptime.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_gene_coverage_by_var.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_gene_coverage_by_var.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_markers.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_markers.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_monocle_features.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_monocle_features.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_multiple_branches_heatmap.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_multiple_branches_heatmap.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_pseudotime.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_pseudotime.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_pseudotime_heatmap.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_pseudotime_heatmap.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_readcount.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_readcount.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_ridge.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_ridge.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_scvelo.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_scvelo.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_transcript_composition.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_transcript_composition.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_var.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_var.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plot_violin.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plot_violin.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/plotly_settings.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/plotly_settings.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/prep_armor_meta.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/prep_armor_meta.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/prep_plot_genes_in_pseudotime.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/prep_plot_genes_in_pseudotime.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/prep_scvelo.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/prep_scvelo.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/prep_slider_values.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/prep_slider_values.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/process_monocle_child.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/process_monocle_child.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/propagate_spreadsheet_changes.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/propagate_spreadsheet_changes.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/query_experiment.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/query_experiment.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/read_project_db.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/read_project_db.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/record_experiment_data.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/record_experiment_data.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/reference_integrate.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/reference_integrate.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/reformatMetadataDR.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/reformatMetadataDR.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/reformatMetadataDRui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/reformatMetadataDRui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/regress_by_features.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/regress_by_features.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/reintegrate_seu.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/reintegrate_seu.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/rename_from_x_notation.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/rename_from_x_notation.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/rename_seurat.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/rename_seurat.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/reorg_seurat_files.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/reorg_seurat_files.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/reset_seu_meta.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/reset_seu_meta.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/run_BEAM.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/run_BEAM.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/run_census.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/run_census.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/run_enrichmentbrowser.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/run_enrichmentbrowser.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/run_hmap.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/run_hmap.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/run_scvelo.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/run_scvelo.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/run_seurat_de.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/run_seurat_de.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/save_seurat.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/save_seurat.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/sce_from_tibbles.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/sce_from_tibbles.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/scvelo_expression.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/scvelo_expression.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/set_colnames_txi.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/set_colnames_txi.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seu_calcn.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seu_calcn.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seu_complex_heatmap.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seu_complex_heatmap.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seu_from_tibbles.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seu_from_tibbles.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seu_from_tximport.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seu_from_tximport.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seuratApp.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seuratApp.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seuratTools-package.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seuFLViz-package.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seuratToolsBox.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seuFLVizBox.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seurat_cluster.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seurat_cluster.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seurat_find_markers.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seurat_find_markers.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seurat_integrate.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seurat_integrate.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seurat_integration_pipeline.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seurat_integration_pipeline.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seurat_pipeline.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seurat_pipeline.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seurat_preprocess.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seurat_preprocess.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seurat_reduce_dimensions.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seurat_reduce_dimensions.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seurat_v5_integrate.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seurat_v5_integrate.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/seurat_v5_integration_pipeline.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/seurat_v5_integration_pipeline.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/stash_marker_features.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/stash_marker_features.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/subset_by_meta.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/subset_by_meta.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/swap_counts_from_feature.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/swap_counts_from_feature.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/tableSelected.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/tableSelected.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/tableSelectedui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/tableSelectedui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/techInfo.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/techInfo.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/techInfoui.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/techInfoui.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/threshold_monocle_genes.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/threshold_monocle_genes.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/transcripts_to_genes.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/transcripts_to_genes.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/unite_metadata.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/unite_metadata.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/update_chevreul_object.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/update_chevreul_object.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/update_exp_meta.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/update_exp_meta.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/update_human_gene_symbols.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/update_human_gene_symbols.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/update_project_db.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/update_project_db.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/update_seu_meta.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/update_seu_meta.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/update_seuratTools_object.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/update_seuFLViz_object.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/velocyto_assay.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/velocyto_assay.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/velocyto_seu.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/velocyto_seu.html</loc>
   </url>
   <url>
-    <loc>https://cobriniklab.github.io/seuratTools/reference/velocyto_seurat_from_loom.html</loc>
+    <loc>https://cobriniklab.github.io/seuFLViz/reference/velocyto_seurat_from_loom.html</loc>
   </url>
 </urlset>

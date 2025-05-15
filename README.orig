@@ -18,14 +18,14 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/cobriniklab/seuratTools.svg?branch=master)](https://travis-ci.org/cobriniklab/seuratTools)
+[![Travis build status](https://travis-ci.org/cobriniklab/seuFLViz.svg?branch=master)](https://travis-ci.org/cobriniklab/seuFLViz)
 <!-- badges: end -->
 
-# seuratTools
+# seuFLViz
 
 This package includes a set of Shiny apps for exploring single cell RNA datasets processed with <a href="https://github.com/satijalab/seurat" target="_blank" rel="noopener noreferrer">Seurat</a>
 
-A demo using a pancreas dataset from the Seurat team is available <a href="http://cobriniklab.saban-chla.usc.edu:3838/seuratTools_demo/" target="_blank" rel="noopener noreferrer">here</a>
+A demo using a pancreas dataset from the Seurat team is available <a href="http://cobriniklab.saban-chla.usc.edu:3838/seuFLViz_demo/" target="_blank" rel="noopener noreferrer">here</a>
 
 There are also convenient functions for:
 * Clustering and Dimensional Reduction of Raw Sequencing Data.
@@ -36,25 +36,25 @@ There are also convenient functions for:
 
 ## Installation
 
-You can install the released version of seuratTools from <a href="https://github.com/cobriniklab/seuratTools" target="_blank" rel="noopener noreferrer">github</a> with:
+You can install the released version of seuFLViz from <a href="https://github.com/cobriniklab/seuFLViz" target="_blank" rel="noopener noreferrer">github</a> with:
 
 ### Install locally and run in three steps:
 
 ```{r}
 install.packages("devtools")
-devtools::install_github("cobriniklab/seuratTools")
-seuratTools::create_project_db()
+devtools::install_github("cobriniklab/seuFLViz")
+seuFLViz::create_project_db()
 ```
 
 ### Install locally (custom location!) and run in three steps:
 ```{r}
-devtools::install_github("cobriniklab/seuratTools")
-seuratTools::create_project_db(destdir='/your/path/to/app')
+devtools::install_github("cobriniklab/seuFLViz")
+seuFLViz::create_project_db(destdir='/your/path/to/app')
 ```
 
 ## Site
 
-You can view documentation on the <a href="https://cobriniklab.github.io/seuratTools" target="_blank" rel="noopener noreferrer">seuratTools website</a>
+You can view documentation on the <a href="https://cobriniklab.github.io/seuFLViz" target="_blank" rel="noopener noreferrer">seuFLViz website</a>
 
 ## How To 
 
@@ -69,7 +69,7 @@ You can view documentation on the <a href="https://cobriniklab.github.io/seuratT
 ## Getting Started 
 
 ```{r}
-library(seuratTools)
+library(seuFLViz)
 library(Seurat)
 library(tidyverse)
 library(ggraph)

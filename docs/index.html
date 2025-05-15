@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tools for Managing Seurat Objects • seuratTools</title>
+<title>Tools for Managing Seurat Objects • seuFLViz</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
@@ -32,7 +32,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">seuratTools</a>
+        <a class="navbar-link" href="index.html">seuFLViz</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.6.0</span>
       </span>
     </div>
@@ -69,7 +69,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/cobriniklab/seuratTools/" class="external-link">
+  <a href="https://github.com/cobriniklab/seuFLViz/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -87,7 +87,7 @@
       </header><div class="row">
   <div class="contents col-md-9">
 <div class="section level1">
-<div class="page-header"><h1 id="seuratTools">seuratTools<a class="anchor" aria-label="anchor" href="#seuratTools"></a>
+<div class="page-header"><h1 id="seuFLViz">seuFLViz<a class="anchor" aria-label="anchor" href="#seuFLViz"></a>
 </h1></div>
 <p>This package includes a set of Shiny apps for exploring single cell RNA datasets processed with <a href="https://github.com/satijalab/seurat" target="_blank" rel="noopener noreferrer" class="external-link">Seurat</a></p>
 <p>A demo using a human gene transcript dataset from Shayler et al. (link) is available <a href="https://docker.saban.chla.usc.edu/cobrinik/app/seuratApp/" target="_blank" rel="noopener noreferrer" class="external-link">here</a></p>
@@ -101,32 +101,32 @@
 </li>
 </ul>
 <blockquote>
-<p>[!WARNING] seuratTools was designed for full-length smart-seq based single cell data. Default settings may not be appropriate for droplet (10x) data, though most can be adjusted. Keep in mind <a href="https://satijalab.org/seurat/articles/pbmc3k_tutorial" class="external-link">best practices</a> regarding normalization, dimensional reduction, etc. when using.</p>
+<p>[!WARNING] seuFLViz was designed for full-length smart-seq based single cell data. Default settings may not be appropriate for droplet (10x) data, though most can be adjusted. Keep in mind <a href="https://satijalab.org/seurat/articles/pbmc3k_tutorial" class="external-link">best practices</a> regarding normalization, dimensional reduction, etc. when using.</p>
 </blockquote>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the released version of seuratTools from <a href="https://github.com/cobriniklab/seuratTools" target="_blank" rel="noopener noreferrer" class="external-link">github</a> with:</p>
+<p>You can install the released version of seuFLViz from <a href="https://github.com/cobriniklab/seuFLViz" target="_blank" rel="noopener noreferrer" class="external-link">github</a> with:</p>
 <div class="section level3">
 <h3 id="install-locally-and-run-in-three-steps">Install locally and run in three steps:<a class="anchor" aria-label="anchor" href="#install-locally-and-run-in-three-steps"></a>
 </h3>
-<p>You can install seuratTools locally using the following steps:</p>
+<p>You can install seuFLViz locally using the following steps:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"cobriniklab/seuratTools"</span><span class="op">)</span></span>
-<span><span class="fu">seuratTools</span><span class="fu">::</span><span class="fu"><a href="reference/create_project_db.html">create_project_db</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"cobriniklab/seuFLViz"</span><span class="op">)</span></span>
+<span><span class="fu">seuFLViz</span><span class="fu">::</span><span class="fu"><a href="reference/create_project_db.html">create_project_db</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>You can also customize the location of the app using these steps:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"cobriniklab/seuratTools"</span><span class="op">)</span></span>
-<span><span class="fu">seuratTools</span><span class="fu">::</span><span class="fu"><a href="reference/create_project_db.html">create_project_db</a></span><span class="op">(</span>destdir <span class="op">=</span> <span class="st">"/your/path/to/app"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"cobriniklab/seuFLViz"</span><span class="op">)</span></span>
+<span><span class="fu">seuFLViz</span><span class="fu">::</span><span class="fu"><a href="reference/create_project_db.html">create_project_db</a></span><span class="op">(</span>destdir <span class="op">=</span> <span class="st">"/your/path/to/app"</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
 <h2 id="getting-started">Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
 </h2>
-<p>First, load seuratTools and all other packages required</p>
+<p>First, load seuFLViz and all other packages required</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/cobriniklab/seuratTools" class="external-link">seuratTools</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/cobriniklab/seuFLViz" class="external-link">seuFLViz</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://satijalab.org/seurat" class="external-link">Seurat</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggraph.data-imaginist.com" class="external-link">ggraph</a></span><span class="op">)</span></span></code></pre></div>
@@ -134,7 +134,7 @@
 <div class="section level2">
 <h2 id="tldr">TLDR<a class="anchor" aria-label="anchor" href="#tldr"></a>
 </h2>
-<p>seuratTools provides a single command to:</p>
+<p>seuFLViz provides a single command to:</p>
 <ul>
 <li><p>construct a Seurat object</p></li>
 <li><p>filter genes by minimum expression and ubiquity</p></li>
@@ -172,7 +172,7 @@
 <div class="section level2">
 <h2 id="preprocess-the-seurat-object">Preprocess the seurat object<a class="anchor" aria-label="anchor" href="#preprocess-the-seurat-object"></a>
 </h2>
-<p>seuratTools includes a handy function to preprocess the data that handles normalization and scaling required for downstream analysis. If needed, parameters can be specified by the user.</p>
+<p>seuFLViz includes a handy function to preprocess the data that handles normalization and scaling required for downstream analysis. If needed, parameters can be specified by the user.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">myseu</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/seurat_preprocess.html">seurat_preprocess</a></span><span class="op">(</span><span class="va">myseu</span><span class="op">)</span></span></code></pre></div>
 <p>This single function includes seurat sub-functions that normalizes, identifies highly variable features and scales the data</p>
@@ -180,7 +180,7 @@
 <div class="section level2">
 <h2 id="perform-dimension-reduction">Perform dimension reduction<a class="anchor" aria-label="anchor" href="#perform-dimension-reduction"></a>
 </h2>
-<p>seuratTools also implements a standardized dimension reduction step to select variable features at a user-specified threshold and perform PCA, tSNE, and UMAP. The default assay the dimension reduction is being run on is “gene”.</p>
+<p>seuFLViz also implements a standardized dimension reduction step to select variable features at a user-specified threshold and perform PCA, tSNE, and UMAP. The default assay the dimension reduction is being run on is “gene”.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">myseu</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/seurat_reduce_dimensions.html">seurat_reduce_dimensions</a></span><span class="op">(</span><span class="va">myseu</span>, assay <span class="op">=</span> <span class="st">"RNA"</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -195,7 +195,7 @@
 <div class="section level2">
 <h2 id="split-included-dataset-based-on-collection-technology">Split included dataset based on collection technology<a class="anchor" aria-label="anchor" href="#split-included-dataset-based-on-collection-technology"></a>
 </h2>
-<p>seuratTools includes a function, <code>SplitObject</code>, which is capable of splitting the dataset into subsets based on a single attribute indicated by the split.by argument</p>
+<p>seuFLViz includes a function, <code>SplitObject</code>, which is capable of splitting the dataset into subsets based on a single attribute indicated by the split.by argument</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">split_human</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://satijalab.org/seurat/reference/SplitObject.html" class="external-link">SplitObject</a></span><span class="op">(</span><span class="va">human_gene_transcript_seu</span>, split.by <span class="op">=</span> <span class="st">"dataset"</span><span class="op">)</span></span></code></pre></div>
 <p>In this example the <code>split_human</code> object consists of a list of subsetted objects which are split based on batch</p>
@@ -222,8 +222,8 @@
     <div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/cobriniklab/seuratTools/" class="external-link">Browse source code</a></li>
-<li><a href="https://github.com/cobriniklab/seuratTools/issues" class="external-link">Report a bug</a></li>
+<li><a href="https://github.com/cobriniklab/seuFLViz/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/cobriniklab/seuFLViz/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -239,7 +239,7 @@
 <div class="citation">
 <h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="authors.html#citation">Citing seuratTools</a></li>
+<li><a href="authors.html#citation">Citing seuFLViz</a></li>
 </ul>
 </div>
 

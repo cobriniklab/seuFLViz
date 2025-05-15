@@ -9,7 +9,7 @@
 #' @export
 #'
 #' @examples
-build_bigwig_db <- function(bam_files, bigwig_db = "~/.cache/seuratTools/bw-files.db") {
+build_bigwig_db <- function(bam_files, bigwig_db = "~/.cache/seuFLViz/bw-files.db") {
     bam_files <- fs::path_abs(bam_files)
 
     bigwigfiles <- purrr::map_chr(bam_files, ~ megadepth::bam_to_bigwig(.x, prefix = fs::path_ext_remove(.x), overwrite = TRUE)) %>%
@@ -36,7 +36,7 @@ build_bigwig_db <- function(bam_files, bigwig_db = "~/.cache/seuratTools/bw-file
 #' @export
 #'
 #' @examples
-load_bigwigs <- function(seu, bigwig_db = "~/.cache/seuratTools/bw-files.db") {
+load_bigwigs <- function(seu, bigwig_db = "~/.cache/seuFLViz/bw-files.db") {
     con <- DBI::dbConnect(RSQLite::SQLite(), dbname = bigwig_db)
 
     bigwigfiles <- DBI::dbReadTable(con, "bigwigfiles") %>%

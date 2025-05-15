@@ -6,10 +6,10 @@
 \usage{
 seuratApp(
   preset_project,
-  appTitle = "seuratTools",
+  appTitle = "seuFLViz",
   organism_type = "human",
-  bigwig_db = "~/.cache/seuratTools/bw-files.db",
-  db_path = "~/.cache/seuratTools/single-cell-projects.db",
+  bigwig_db = "~/.cache/seuFLViz/bw-files.db",
+  db_path = "~/.cache/seuFLViz/single-cell-projects.db",
   futureMb = 13000
 )
 }

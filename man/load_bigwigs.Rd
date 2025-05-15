@@ -4,7 +4,7 @@
 \alias{load_bigwigs}
 \title{Load Bigwigs}
 \usage{
-load_bigwigs(seu, bigwig_db = "~/.cache/seuratTools/bw-files.db")
+load_bigwigs(seu, bigwig_db = "~/.cache/seuFLViz/bw-files.db")
 }
 \arguments{
 \item{seu}{A seurat object}

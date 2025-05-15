@@ -225,8 +225,8 @@ prep_slider_values <- function(default_val) {
 #' @export
 #'
 #' @examples
-seuratApp <- function(preset_project, appTitle = "seuratTools", organism_type = "human", bigwig_db = "~/.cache/seuratTools/bw-files.db", db_path = "~/.cache/seuratTools/single-cell-projects.db", futureMb = 13000) {
-    print(packageVersion("seuratTools"))
+seuratApp <- function(preset_project, appTitle = "seuFLViz", organism_type = "human", bigwig_db = "~/.cache/seuFLViz/bw-files.db", db_path = "~/.cache/seuFLViz/single-cell-projects.db", futureMb = 13000) {
+    print(packageVersion("seuFLViz"))
     future::plan(strategy = "multicore", workers = 6)
     future_size <- futureMb * 1024^2
     options(future.globals.maxSize = future_size)
@@ -304,7 +304,7 @@ seuratApp <- function(preset_project, appTitle = "seuratTools", organism_type = 
                 plotDimRedui("plotdimred2"),
                 plotReadCountui("plotreadcount1"),
                 plotReadCountui("plotreadcount2"),
-                seuratToolsBox(
+                seuFLVizBox(
                     title = "Selected Cells",
                     tableSelectedui("tableselected"),
                     width = 6
@@ -344,7 +344,7 @@ seuratApp <- function(preset_project, appTitle = "seuratTools", organism_type = 
                 h2("Subset Seurat Input") %>%
                     default_helper(type = "markdown", content = "subsetSeurat"),
                 plotDimRedui("subset"),
-                seuratToolsBox(
+                seuFLVizBox(
                     title = "Subset Settings",
                     checkboxInput("legacySettingsSubset", "Use Legacy Settings", value = FALSE),
                     actionButton("subsetAction", "subset seurat by selected cells"),
@@ -358,7 +358,7 @@ seuratApp <- function(preset_project, appTitle = "seuratTools", organism_type = 
                     textOutput("subsetMessages"),
                     width = 6
                 ),
-                seuratToolsBox(
+                seuFLVizBox(
                     title = "Selected Cells", tableSelectedui("subset"),
                     width = 6
                 )
@@ -397,7 +397,7 @@ seuratApp <- function(preset_project, appTitle = "seuratTools", organism_type = 
             shinydashboard::tabItem(
                 tabName = "regressFeatures",
                 fluidRow(
-                    seuratToolsBox(
+                    seuFLVizBox(
                         title = "Regress Features",
                         actionButton(
                             "regressAction",
@@ -430,7 +430,7 @@ seuratApp <- function(preset_project, appTitle = "seuratTools", organism_type = 
             ), shinydashboard::tabItem(
                 tabName = "techInfo",
                 h2("Technical Information"),
-                h3(paste0("seuratTools version: ", packageVersion("seuratTools"))),
+                h3(paste0("seuFLViz version: ", packageVersion("seuFLViz"))),
                 techInfoui("techInfo")
             )
         )
@@ -466,7 +466,7 @@ seuratApp <- function(preset_project, appTitle = "seuratTools", organism_type = 
         w <- waiter::Waiter$new()
 
         # lib.loc = "/dataVolume/storage/rpkgs/devel_install/"
-        shinyhelper::observe_helpers(help_dir = system.file("helpers", package = "seuratTools"))
+        shinyhelper::observe_helpers(help_dir = system.file("helpers", package = "seuFLViz"))
         options(warn = -1)
         # shinylogs::track_usage(storage_mode = shinylogs::store_json(path = "logs/"))
         # projects_db <- "/dataVolume/storage/single_cell_projects/single_cell_projects.db"
@@ -557,7 +557,7 @@ seuratApp <- function(preset_project, appTitle = "seuratTools", organism_type = 
                 {
                     shiny::incProgress(2 / 10)
                     print(uploadSeuratPath())
-                    updated_seu <- update_seuratTools_object(seu_path = uploadSeuratPath(), organism = organism)
+                    updated_seu <- update_seuFLViz_object(seu_path = uploadSeuratPath(), organism = organism)
                     seu(updated_seu)
                     shiny::incProgress(6 / 10)
 
@@ -848,7 +848,7 @@ seuratApp <- function(preset_project, appTitle = "seuratTools", organism_type = 
                 title = "Regressing out provided list of features",
                 "This process may take a minute or two!"
             ))
-            regressed_seu <- seuratTools::regress_by_features(seu(),
+            regressed_seu <- seuFLViz::regress_by_features(seu(),
                 feature_set = list(input$geneSet), set_name = janitor::make_clean_names(input$geneSetName),
                 regress = input$runRegression
             )

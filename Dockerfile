@@ -82,7 +82,7 @@ RUN R -e 'remotes::install_github("cole-trapnell-lab/monocle3")'
 # # RUN install2.r --error --deps TRUE shinydashboard
 #
 #
-# # COPY seuratTools_*.tar.gz /app.tar.gz
+# # COPY seuFLViz_*.tar.gz /app.tar.gz
 # # RUN remotes::install_local('/app.tar.gz')
 # # CMD R -e 'library(dockerfiler)'
 #
@@ -105,7 +105,7 @@ RUN R -e 'install.packages("tidyverse")'
 RUN R -e 'BiocManager::install("InteractiveComplexHeatmap")'
 
 COPY Rprofile.site /usr/local/lib/R/etc/
-RUN R -e 'remotes::install_github("cobriniklab/seuratTools")'
+RUN R -e 'remotes::install_github("cobriniklab/seuFLViz")'
 # EXPOSE 3838
 
 # # install shinyproxy package with demo shiny application

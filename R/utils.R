@@ -242,7 +242,7 @@ record_experiment_data <- function(object, experiment_name = "default_experiment
         experiment$seurat_version <- object@version
     }
 
-    experiment$seuratTools_version <- utils::packageVersion("seuratTools")
+    experiment$seuFLViz_version <- utils::packageVersion("seuFLViz")
 
     object@misc[["experiment"]] <- NULL
     object@misc[["experiment"]] <- experiment
@@ -251,7 +251,7 @@ record_experiment_data <- function(object, experiment_name = "default_experiment
 }
 
 
-#' Update a seuratTools Object
+#' Update a seuFLViz Object
 #'
 #' @param seu_path Path to a seurat object
 #' @param feature
@@ -262,7 +262,7 @@ record_experiment_data <- function(object, experiment_name = "default_experiment
 #' @export
 #'
 #' @examples
-update_seuratTools_object <- function(seu_path, feature, resolution = seq(0.2, 2.0, by = 0.2), return_seu = TRUE, ...) {
+update_seuFLViz_object <- function(seu_path, feature, resolution = seq(0.2, 2.0, by = 0.2), return_seu = TRUE, ...) {
     message(seu_path)
     seu <- readRDS(seu_path)
 
@@ -311,9 +311,9 @@ update_seuratTools_object <- function(seu_path, feature, resolution = seq(0.2, 2
     # names(seu@meta.data) <- new_cluster_names
 
 
-    seuratTools_version <- seu@misc$experiment$seuratTools_version
+    seuFLViz_version <- seu@misc$experiment$seuFLViz_version
 
-    seuratTools_version <- ifelse(is.null(seuratTools_version), "0.1.0", seuratTools_version)
+    seuFLViz_version <- ifelse(is.null(seuFLViz_version), "0.1.0", seuFLViz_version)
 
     # update human gene symbols to grch38
     old_symbol <- "CTC-378H22.2"
@@ -323,7 +323,7 @@ update_seuratTools_object <- function(seu_path, feature, resolution = seq(0.2, 2
         }
     }
 
-    if (seuratTools_version < getNamespaceVersion("seuratTools")) {
+    if (seuFLViz_version < getNamespaceVersion("seuFLViz")) {
         message(paste0(seu_path, " is out of date! updating..."))
         if (!any(grepl("_snn_res", colnames(seu@meta.data)))) {
             seu <- seurat_cluster(seu = seu, resolution = resolution, reduction = "pca", ...)
@@ -395,11 +395,11 @@ propagate_spreadsheet_changes <- function(updated_table, seu) {
     return(seu)
 }
 
-#' Create a database of seuratTools projects
+#' Create a database of seuFLViz projects
 #'
-#' Create a database containing seuratTools projects
+#' Create a database containing seuFLViz projects
 #'
-#' @param cache_location Path to cache "~/.cache/seuratTools"
+#' @param cache_location Path to cache "~/.cache/seuFLViz"
 #' @param sqlite_db Database to be created
 #' @param verbose
 #'
@@ -407,7 +407,7 @@ propagate_spreadsheet_changes <- function(updated_table, seu) {
 #' @export
 #'
 #' @examples
-create_project_db <- function(cache_location = "~/.cache/seuratTools",
+create_project_db <- function(cache_location = "~/.cache/seuFLViz",
     sqlite_db = "single-cell-projects.db", verbose = TRUE) {
     if (!dir.exists(cache_location)) {
         dir.create(cache_location)
@@ -422,7 +422,7 @@ create_project_db <- function(cache_location = "~/.cache/seuratTools",
         project_type = character(),
     )
 
-    message(paste0("building table of seuratTools projects at ", fs::path(cache_location, sqlite_db)))
+    message(paste0("building table of seuFLViz projects at ", fs::path(cache_location, sqlite_db)))
     # DBI::dbWriteTable(con, "projects_tbl", projects_tbl)
 
     tryCatch({
@@ -437,12 +437,12 @@ create_project_db <- function(cache_location = "~/.cache/seuratTools",
     DBI::dbDisconnect(con)
 }
 
-#' Update a database of seuratTools projects
+#' Update a database of seuFLViz projects
 #'
 #' Add new/update existing projects to the database by recursing fully
 #'
 #' @param projects_dir The project directory to be updated
-#' @param cache_location Path to cache "~/.cache/seuratTools"
+#' @param cache_location Path to cache "~/.cache/seuFLViz"
 #' @param sqlite_db sqlite db
 #' @param verbose
 #'
@@ -451,7 +451,7 @@ create_project_db <- function(cache_location = "~/.cache/seuratTools",
 #'
 #' @examples
 update_project_db <- function(projects_dir = NULL,
-    cache_location = "~/.cache/seuratTools",
+    cache_location = "~/.cache/seuFLViz",
     sqlite_db = "single-cell-projects.db",
     verbose = TRUE) {
     if (!dir.exists(cache_location)) {
@@ -481,13 +481,13 @@ update_project_db <- function(projects_dir = NULL,
     DBI::dbDisconnect(con)
 }
 
-#' Update a database of seuratTools projects
+#' Update a database of seuFLViz projects
 #'
 #' Append projects to datatbase
 #'
 #' @param new_project_path
 #' @param projects_dir
-#' @param cache_location Path to cache "~/.cache/seuratTools"
+#' @param cache_location Path to cache "~/.cache/seuFLViz"
 #' @param sqlite_db sqlite db
 #' @param verbose
 #'
@@ -497,7 +497,7 @@ update_project_db <- function(projects_dir = NULL,
 #'
 #' @examples
 append_to_project_db <- function(new_project_path, projects_dir = NULL,
-    cache_location = "~/.cache/seuratTools",
+    cache_location = "~/.cache/seuFLViz",
     sqlite_db = "single-cell-projects.db",
     verbose = TRUE) {
     if (!dir.exists(cache_location)) {
@@ -526,12 +526,12 @@ append_to_project_db <- function(new_project_path, projects_dir = NULL,
     DBI::dbDisconnect(con)
 }
 
-#' Read a database of seuratTools projects
+#' Read a database of seuFLViz projects
 #'
-#' Reads database of seuratTools projects to a data frame
+#' Reads database of seuFLViz projects to a data frame
 #'
-#' @param projects_dir Project directory containing seuratTools projects
-#' @param cache_location Path to cache "~/.cache/seuratTools"
+#' @param projects_dir Project directory containing seuFLViz projects
+#' @param cache_location Path to cache "~/.cache/seuFLViz"
 #' @param sqlite_db sqlite db
 #' @param verbose
 #'
@@ -540,7 +540,7 @@ append_to_project_db <- function(new_project_path, projects_dir = NULL,
 #'
 #' @examples
 read_project_db <- function(projects_dir = NULL,
-    cache_location = "~/.cache/seuratTools",
+    cache_location = "~/.cache/seuFLViz",
     sqlite_db = "single-cell-projects.db",
     verbose = TRUE) {
     if (!dir.exists(cache_location)) {
@@ -562,14 +562,14 @@ read_project_db <- function(projects_dir = NULL,
 #' Build a database containg bigwig files
 #'
 #' @param new_project Project directory
-#' @param cache_location Path to cache "~/.cache/seuratTools"
+#' @param cache_location Path to cache "~/.cache/seuFLViz"
 #' @param sqlite_db sqlite db containing bw files
 #'
 #' @return
 #' @export
 #'
 #' @examples
-make_bigwig_db <- function(new_project = NULL, cache_location = "~/.cache/seuratTools/", sqlite_db = "bw-files.db") {
+make_bigwig_db <- function(new_project = NULL, cache_location = "~/.cache/seuFLViz/", sqlite_db = "bw-files.db") {
     new_bigwigfiles <- fs::dir_ls(new_project, glob = "*.bw", recurse = TRUE) %>%
         purrr::set_names(fs::path_file(.)) %>%
         tibble::enframe("name", "bigWig") %>%
@@ -676,7 +676,7 @@ convert_seu_list_to_multimodal <- function(seu_list) {
     return(multimodal_seu)
 }
 
-#' Clean Vector of seuratTools Names
+#' Clean Vector of seuFLViz Names
 #'
 #' Cleans names of seurat objects provided in a vector form
 #'
@@ -686,7 +686,7 @@ convert_seu_list_to_multimodal <- function(seu_list) {
 #' @export
 #'
 #' @examples
-make_seuratTools_clean_names <- function(myvec) {
+make_seuFLViz_clean_names <- function(myvec) {
     myvec %>%
         purrr::set_names(stringr::str_to_title(stringr::str_replace_all(., "[^[:alnum:][:space:]\\.]", " ")))
 }

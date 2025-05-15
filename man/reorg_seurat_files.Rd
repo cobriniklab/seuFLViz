@@ -5,7 +5,7 @@
 \title{Reorganize seurat objects to a multimodal format}
 \usage{
 reorg_seurat_files(
-  projects_db = "~/.cache/seuratTools/single-cell-projects.db"
+  projects_db = "~/.cache/seuFLViz/single-cell-projects.db"
 )
 }
 \arguments{
