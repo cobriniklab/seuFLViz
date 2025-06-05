@@ -89,6 +89,9 @@ clustered_seu <- clustering_workflow(human_gene_transcript_seu,
 
 ## Get a first look at a processed dataset using an interactive shiny app
 
+The included dataset is available upon package loading, but is also
+stored at <https://zenodo.org/records/15596099>
+
 ``` r
 minimalSeuratApp(human_gene_transcript_seu)
 ```
