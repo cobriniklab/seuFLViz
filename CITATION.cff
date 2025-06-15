@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+authors:
+  - family-names: "Stachelek"
+    given-names: "Kevin"
+title: "seuFLViz"
+version: 1.0.0
+doi: 10.5281/zenodo.123456
+url: "https://github.com/janesmith/my-r-package"
