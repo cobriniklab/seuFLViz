@@ -1,7 +1,7 @@
 Type: Package
 Package: seuFLViz
 Title: Tools for Managing Seurat Objects
-Version: 1.0.0
+Version: 1.0.1
 Date: 2024-01-18
 Authors@R: c(
     person("Kevin", "Stachelek", , "kevin.stachelek@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-2085-695X")),
